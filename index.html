@@ -5,54 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Una Huella a la Vez 🐾</title>
   <style>
-    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
-    body {background: #fff; color: #333; overflow-x: hidden;}
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
+    body {background:#fff7f1; color:#333; overflow-x:hidden;}
 
     /* NAVBAR */
-    nav {position: fixed; top: 0; left: 0; width: 100%; background: #ff914d; color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 14px 40px; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
-    nav h1 {font-size: 22px; font-weight: 700; letter-spacing: 1px;}
-    nav ul {list-style: none; display: flex; gap: 25px;}
-    nav ul li a {text-decoration: none; color: #fff; font-weight: 500; transition: 0.3s;}
-    nav ul li a:hover {color: #ffe7c3;}
+    nav {position:fixed; top:0; width:100%; background:#ff914d; color:#fff; display:flex; justify-content:space-between; align-items:center; padding:14px 40px; z-index:10; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
+    nav h1 {font-size:22px; font-weight:700;}
+    nav ul {list-style:none; display:flex; gap:25px;}
+    nav ul li a {text-decoration:none; color:#fff; font-weight:500; transition:0.3s;}
+    nav ul li a:hover {color:#ffe7c3;}
 
     /* HEADER */
-    header {height: 100vh; background: linear-gradient(to bottom, rgba(255,145,77,0.8), rgba(255,255,255,1)), url('https://cdn.pixabay.com/photo/2017/01/31/20/26/dog-2025569_1280.png'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding-top: 60px;}
-    header h2 {font-size: 3rem; color: #fff; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);}
-    header p {color: #fff; font-size: 1.2rem; max-width: 600px; margin: 0 auto;}
+    header {height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; background: linear-gradient(180deg, #ffb07c, #fff7f1); padding-top:60px; position:relative;}
+    header h2 {font-size:3rem; color:#ff5e3a; margin-bottom:20px; text-shadow:2px 2px 4px rgba(0,0,0,0.2);}
+    header p {color:#333; font-size:1.2rem; max-width:700px; margin:0 auto 40px;}
 
-    /* MAIN */
-    section {padding: 80px 20px; max-width: 1000px; margin: auto;}
-    h2.section-title {text-align: center; color: #ff914d; font-size: 2rem; margin-bottom: 20px;}
-    p {line-height: 1.6; margin-bottom: 12px;}
+    /* SVG ANIMAL */
+    .animal-svg {width:300px; height:auto; margin-bottom:20px;}
 
-    .card {background: #fff7f1; border-left: 6px solid #ff914d; border-radius: 10px; padding: 20px; margin: 20px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.3s;}
-    .card:hover {transform: translateY(-5px);}
+    /* SECCIONES */
+    section {padding:80px 20px; max-width:1000px; margin:auto;}
+    h2.section-title {text-align:center; color:#ff914d; font-size:2.2rem; margin-bottom:30px;}
+    .card {background:#fffaf0; border-radius:15px; padding:25px; margin:20px 0; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition:transform 0.3s;}
+    .card:hover {transform:translateY(-5px);}
 
-    ul {margin-left: 25px; margin-top: 8px;}
+    ul {margin-left:25px; margin-top:8px;}
 
     /* CONTACTOS */
-    .contactos {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;}
-    .contacto-card {background: #fff; padding: 16px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.1);}
+    .contactos {display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px;}
+    .contacto-card {background:#fff; padding:20px; border-radius:12px; box-shadow:0 3px 10px rgba(0,0,0,0.1);}
 
-    /* FOOTER */
-    footer {text-align: center; background: #ff914d; color: #fff; padding: 20px; margin-top: 40px; font-size: 0.9rem;}
-
-    /* ANIMACIONES */
+    /* ANIMACIONES HUELLITAS */
     @keyframes pawMove {
-      0% {transform: translateX(-10px) rotate(10deg); opacity: 0.4;}
-      50% {opacity: 1;}
-      100% {transform: translateX(10px) rotate(-10deg); opacity: 0.4;}
+      0% {transform:translateX(-10px) rotate(10deg); opacity:0.3;}
+      50% {opacity:1;}
+      100% {transform:translateX(10px) rotate(-10deg); opacity:0.3;}
     }
+    .paw {position:absolute; width:50px; opacity:0.3; animation:pawMove 4s infinite alternate ease-in-out;}
+    .paw:nth-child(1){top:10%;left:5%; animation-delay:0.5s;}
+    .paw:nth-child(2){top:25%;right:10%; animation-delay:1s;}
+    .paw:nth-child(3){bottom:15%;left:15%; animation-delay:1.5s;}
+    .paw:nth-child(4){bottom:10%;right:20%; animation-delay:2s;}
 
-    .paw {position: absolute; width: 50px; opacity: 0.3; animation: pawMove 3s infinite alternate ease-in-out;}
-    .paw:nth-child(1){top:15%;left:10%;animation-delay:0.5s;}
-    .paw:nth-child(2){top:30%;right:10%;animation-delay:1s;}
-    .paw:nth-child(3){bottom:20%;left:15%;animation-delay:1.5s;}
-    .paw:nth-child(4){bottom:10%;right:15%;animation-delay:2s;}
+    footer {text-align:center; background:#ff914d; color:#fff; padding:20px; margin-top:40px; font-size:0.9rem;}
 
     @media(max-width:768px){
       header h2{font-size:2.2rem;}
-      nav{flex-direction:column;gap:10px;padding:10px;}
+      nav{flex-direction:column; gap:10px; padding:10px;}
     }
   </style>
 </head>
@@ -70,7 +71,25 @@
   </nav>
 
   <header id="inicio">
-    <img src="https://cdn.pixabay.com/photo/2017/01/31/20/26/dog-2025569_1280.png" alt="Gato y perro" width="300" style="border-radius:20px; box-shadow:0 4px 12px rgba(0,0,0,0.2); margin-bottom:20px;">
+    <!-- SVG GATO Y PERRO -->
+    <svg class="animal-svg" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
+      <g>
+        <!-- Perro -->
+        <ellipse cx="100" cy="100" rx="50" ry="30" fill="#d69f6f" />
+        <circle cx="80" cy="85" r="10" fill="#fff" />
+        <circle cx="120" cy="85" r="10" fill="#fff" />
+        <circle cx="80" cy="85" r="5" fill="#000" />
+        <circle cx="120" cy="85" r="5" fill="#000" />
+        <ellipse cx="100" cy="105" rx="15" ry="10" fill="#000" />
+        <!-- Gato -->
+        <ellipse cx="200" cy="100" rx="40" ry="25" fill="#f4c276" />
+        <circle cx="185" cy="90" r="8" fill="#fff" />
+        <circle cx="215" cy="90" r="8" fill="#fff" />
+        <circle cx="185" cy="90" r="4" fill="#000" />
+        <circle cx="215" cy="90" r="4" fill="#000" />
+        <ellipse cx="200" cy="105" rx="12" ry="7" fill="#000" />
+      </g>
+    </svg>
     <h2>Una Huella a la Vez</h2>
     <p>Ayudemos juntos a los animales callejeros y víctimas de maltrato. Cada huella cuenta para cambiar una vida.</p>
   </header>
@@ -85,10 +104,11 @@
       <h2 class="section-title">Cómo Puedes Ayudar</h2>
       <div class="card">
         <ul>
-          <li>Reporta casos de maltrato o abandono a las autoridades.</li>
-          <li>Ofrece refugio temporal o alimento.</li>
+          <li>Reporta casos de maltrato o abandono a las autoridades locales.</li>
+          <li>Ofrece alimento o refugio temporal.</li>
           <li>Apoya campañas de esterilización y adopción responsable.</li>
-          <li>Educa a tu comunidad sobre el respeto animal.</li>
+          <li>Educa a tu comunidad sobre el cuidado y respeto animal.</li>
+          <li>Participa en voluntariados de rescate y protección.</li>
         </ul>
       </div>
     </section>
@@ -100,7 +120,8 @@
           <li>Acércate despacio y evita movimientos bruscos.</li>
           <li>Permite que el animal se acerque por su cuenta.</li>
           <li>Habla con voz suave y tranquila.</li>
-          <li>Usa comida como incentivo.</li>
+          <li>Usa comida como incentivo y recompensa.</li>
+          <li>Observa lenguaje corporal para respetar sus límites.</li>
         </ul>
       </div>
     </section>
@@ -111,6 +132,7 @@
         <div class="contacto-card"><strong>Atención Ciudadana</strong><br>Tel: 073</div>
         <div class="contacto-card"><strong>Control Canino Municipal</strong><br>Tel / WhatsApp: 871 742 9902</div>
         <div class="contacto-card"><strong>PROFEPA</strong><br>Tel: 800 776 3372</div>
+        <div class="contacto-card"><strong>Refugio Animal Local</strong><br>Tel: 871 123 4567</div>
       </div>
     </section>
 
@@ -122,13 +144,26 @@
           <li>Dirección exacta o referencias.</li>
           <li>Fecha y hora de los hechos.</li>
           <li>Fotos o videos como evidencia.</li>
+          <li>Datos de testigos si es posible.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="datos-curiosos">
+      <h2 class="section-title">Datos Curiosos</h2>
+      <div class="card">
+        <ul>
+          <li>Los gatos tienen un promedio de 16 horas de sueño al día.</li>
+          <li>Los perros pueden detectar emociones humanas mediante el olfato.</li>
+          <li>El juego y la socialización son vitales para la salud emocional de los animales.</li>
+          <li>Adoptar salva vidas: cada adopción libera espacio en refugios para otro animal necesitado.</li>
         </ul>
       </div>
     </section>
   </main>
 
   <footer>
-    <p>Creado con 💚 por <strong>Madai Corona Vargas</strong> — Proyecto “Una Huella a la Vez” | Listo para GitHub Pages</p>
+    <p>Creado con 💚 por <strong>Madai Yamile Corona Vargas</strong> — Proyecto “Una Huella a la Vez” | Listo para GitHub Pages</p>
   </footer>
 </body>
 </html>
