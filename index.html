@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Una Huella a la Vez 🐾</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif;}
+    body {background: #fff; color: #333; overflow-x: hidden;}
+
+    /* NAVBAR */
+    nav {position: fixed; top: 0; left: 0; width: 100%; background: #ff914d; color: #fff; display: flex; justify-content: space-between; align-items: center; padding: 14px 40px; z-index: 10; box-shadow: 0 2px 8px rgba(0,0,0,0.1);}
+    nav h1 {font-size: 22px; font-weight: 700; letter-spacing: 1px;}
+    nav ul {list-style: none; display: flex; gap: 25px;}
+    nav ul li a {text-decoration: none; color: #fff; font-weight: 500; transition: 0.3s;}
+    nav ul li a:hover {color: #ffe7c3;}
+
+    /* HEADER */
+    header {height: 100vh; background: linear-gradient(to bottom, rgba(255,145,77,0.8), rgba(255,255,255,1)), url('https://cdn.pixabay.com/photo/2017/01/31/20/26/dog-2025569_1280.png'); background-size: cover; background-position: center; display: flex; align-items: center; justify-content: center; flex-direction: column; text-align: center; padding-top: 60px;}
+    header h2 {font-size: 3rem; color: #fff; margin-bottom: 10px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);}
+    header p {color: #fff; font-size: 1.2rem; max-width: 600px; margin: 0 auto;}
+
+    /* MAIN */
+    section {padding: 80px 20px; max-width: 1000px; margin: auto;}
+    h2.section-title {text-align: center; color: #ff914d; font-size: 2rem; margin-bottom: 20px;}
+    p {line-height: 1.6; margin-bottom: 12px;}
+
+    .card {background: #fff7f1; border-left: 6px solid #ff914d; border-radius: 10px; padding: 20px; margin: 20px 0; box-shadow: 0 4px 10px rgba(0,0,0,0.05); transition: transform 0.3s;}
+    .card:hover {transform: translateY(-5px);}
+
+    ul {margin-left: 25px; margin-top: 8px;}
+
+    /* CONTACTOS */
+    .contactos {display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;}
+    .contacto-card {background: #fff; padding: 16px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.1);}
+
+    /* FOOTER */
+    footer {text-align: center; background: #ff914d; color: #fff; padding: 20px; margin-top: 40px; font-size: 0.9rem;}
+
+    /* ANIMACIONES */
+    @keyframes pawMove {
+      0% {transform: translateX(-10px) rotate(10deg); opacity: 0.4;}
+      50% {opacity: 1;}
+      100% {transform: translateX(10px) rotate(-10deg); opacity: 0.4;}
+    }
+
+    .paw {position: absolute; width: 50px; opacity: 0.3; animation: pawMove 3s infinite alternate ease-in-out;}
+    .paw:nth-child(1){top:15%;left:10%;animation-delay:0.5s;}
+    .paw:nth-child(2){top:30%;right:10%;animation-delay:1s;}
+    .paw:nth-child(3){bottom:20%;left:15%;animation-delay:1.5s;}
+    .paw:nth-child(4){bottom:10%;right:15%;animation-delay:2s;}
+
+    @media(max-width:768px){
+      header h2{font-size:2.2rem;}
+      nav{flex-direction:column;gap:10px;padding:10px;}
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <h1>🐾 Una Huella a la Vez</h1>
+    <ul>
+      <li><a href="#inicio">Inicio</a></li>
+      <li><a href="#ayuda">Cómo ayudar</a></li>
+      <li><a href="#confianza">Confianza</a></li>
+      <li><a href="#contactos">Contactos</a></li>
+      <li><a href="#denuncia">Denunciar</a></li>
+    </ul>
+  </nav>
+
+  <header id="inicio">
+    <img src="https://cdn.pixabay.com/photo/2017/01/31/20/26/dog-2025569_1280.png" alt="Gato y perro" width="300" style="border-radius:20px; box-shadow:0 4px 12px rgba(0,0,0,0.2); margin-bottom:20px;">
+    <h2>Una Huella a la Vez</h2>
+    <p>Ayudemos juntos a los animales callejeros y víctimas de maltrato. Cada huella cuenta para cambiar una vida.</p>
+  </header>
+
+  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="paw" alt="huella">
+  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="paw" alt="huella">
+  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="paw" alt="huella">
+  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="paw" alt="huella">
+
+  <main>
+    <section id="ayuda">
+      <h2 class="section-title">Cómo Puedes Ayudar</h2>
+      <div class="card">
+        <ul>
+          <li>Reporta casos de maltrato o abandono a las autoridades.</li>
+          <li>Ofrece refugio temporal o alimento.</li>
+          <li>Apoya campañas de esterilización y adopción responsable.</li>
+          <li>Educa a tu comunidad sobre el respeto animal.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="confianza">
+      <h2 class="section-title">Ganar la Confianza de un Animal</h2>
+      <div class="card">
+        <ul>
+          <li>Acércate despacio y evita movimientos bruscos.</li>
+          <li>Permite que el animal se acerque por su cuenta.</li>
+          <li>Habla con voz suave y tranquila.</li>
+          <li>Usa comida como incentivo.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="contactos">
+      <h2 class="section-title">Contactos en Torreón</h2>
+      <div class="contactos">
+        <div class="contacto-card"><strong>Atención Ciudadana</strong><br>Tel: 073</div>
+        <div class="contacto-card"><strong>Control Canino Municipal</strong><br>Tel / WhatsApp: 871 742 9902</div>
+        <div class="contacto-card"><strong>PROFEPA</strong><br>Tel: 800 776 3372</div>
+      </div>
+    </section>
+
+    <section id="denuncia">
+      <h2 class="section-title">Cómo Denunciar</h2>
+      <div class="card">
+        <p>Para realizar una denuncia efectiva, incluye:</p>
+        <ul>
+          <li>Dirección exacta o referencias.</li>
+          <li>Fecha y hora de los hechos.</li>
+          <li>Fotos o videos como evidencia.</li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>Creado con 💚 por <strong>Madai Corona Vargas</strong> — Proyecto “Una Huella a la Vez” | Listo para GitHub Pages</p>
+  </footer>
+</body>
+</html>
+
