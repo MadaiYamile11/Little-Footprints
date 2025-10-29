@@ -1,156 +1,163 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Refugio Esperanza Animal 🐾</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Little Footprints — Amor y Ayuda Animal</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
 <style>
 :root {
-  --fondo: #fffaf5;
-  --acento: #ffb347;
-  --acento2: #ffd580;
-  --titulo: #6b3e26;
-  --texto: #4a3b35;
+  --bg: #fff7fb;
+  --card: #ffffff;
+  --accent: #ffc6d9;
+  --accent2: #ffe3ee;
+  --muted: #b57a93;
+  --text: #573a4c;
+  --shadow: 0 6px 16px rgba(0,0,0,0.08);
+  --radius: 18px;
 }
 body {
-  margin: 0;
-  font-family: "Poppins", sans-serif;
-  background: var(--fondo);
-  overflow-x: hidden;
+  margin:0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x:hidden;
+}
+header {
+  text-align:center;
+  padding:20px;
+  position:relative;
+}
+header h1 {
+  font-family:'Dancing Script',cursive;
+  color:#ff6392;
+  font-size:3em;
+  margin-bottom:5px;
+}
+header p {
+  color:var(--muted);
+  margin-top:0;
+  font-size:1.1em;
 }
 nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: var(--acento);
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  padding: 8px 0;
-  z-index: 10;
+  text-align:center;
+  background:var(--accent2);
+  padding:10px;
+  box-shadow:var(--shadow);
+  position:sticky;
+  top:0;
+  z-index:10;
 }
 nav button {
-  background: transparent;
-  border: none;
-  font-weight: 600;
-  color: var(--titulo);
-  margin: 6px 10px;
-  font-size: 1em;
-  cursor: pointer;
+  background:#fff;
+  border:none;
+  border-radius:20px;
+  margin:5px;
+  padding:10px 18px;
+  cursor:pointer;
+  font-weight:600;
+  color:#ff6392;
+  box-shadow:0 4px 8px rgba(0,0,0,0.1);
 }
-nav button:hover {
-  text-decoration: underline;
-}
-.container {
-  margin-top: 60px;
-  width: 100%;
-  overflow: hidden;
-  position: relative;
+nav button:hover { background:var(--accent); color:white; }
+.slider {
+  overflow:hidden;
+  width:100%;
+  position:relative;
 }
 .slides {
-  display: flex;
-  width: 600%;
-  transition: transform 0.8s ease-in-out;
+  display:flex;
+  transition:transform 0.8s ease;
+  width:600%;
 }
 .pane {
-  width: 100%;
-  min-height: 100vh;
-  padding: 3rem 6%;
-  box-sizing: border-box;
+  min-width:100%;
+  padding:40px 20px;
+  box-sizing:border-box;
 }
-h1, h2, h3 {
-  color: var(--titulo);
-  text-align: center;
+h2 {
+  color:#ff6392;
+  font-size:2em;
+  margin-bottom:10px;
 }
-h1 {
-  font-size: 3rem;
-  font-family: "Brush Script MT", cursive;
-}
-p {
-  color: var(--texto);
-  line-height: 1.7em;
-  font-size: 1.1em;
-  text-align: justify;
-}
-.paws {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-}
-.paw {
-  position: absolute;
-  opacity: 0.2;
-  font-size: 2rem;
-  animation: floatPaws 8s infinite ease-in-out alternate;
-}
-@keyframes floatPaws {
-  0% {transform: translateY(0);}
-  100% {transform: translateY(-30px);}
-}
-.sound-word {
-  position: absolute;
-  font-size: 2rem;
-  font-weight: bold;
-  color: var(--acento);
-  opacity: 0;
-  animation: appear 4s infinite;
-}
-@keyframes appear {
-  0% {opacity: 0; transform: scale(0.5);}
-  50% {opacity: 1; transform: scale(1);}
-  100% {opacity: 0; transform: scale(0.5);}
-}
-.grid-2, .grid-3, .grid-4 {
-  display: grid;
-  gap: 1.5rem;
-}
-.grid-2 {grid-template-columns: repeat(auto-fit,minmax(300px,1fr));}
-.grid-3 {grid-template-columns: repeat(auto-fit,minmax(250px,1fr));}
-.grid-4 {grid-template-columns: repeat(auto-fit,minmax(200px,1fr));}
-.card {
-  background: #fff;
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  transition: transform .3s;
-}
-.card:hover {transform: translateY(-6px);}
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-th, td {
-  border: 1px solid #ccc;
-  padding: 8px;
-  text-align: left;
+p,li { font-size:1em; line-height:1.6; }
+ul { padding-left:20px; }
+.grid-3 {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:16px;
 }
 .pet-card {
-  text-align: center;
-  background: #fff;
-  border-radius: 16px;
-  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
-  padding: 1rem;
-  transition: transform .3s;
+  background:var(--card);
+  border-radius:var(--radius);
+  padding:14px;
+  box-shadow:var(--shadow);
+  transition:transform 0.3s ease;
 }
-.pet-card:hover {transform: scale(1.03);}
+.pet-card:hover { transform:translateY(-5px); }
 .pet-photo {
-  width: 100%;
-  height: 180px;
-  background: var(--acento2);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
-  color: var(--titulo);
+  width:100%;
+  height:180px;
+  background:var(--accent2);
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  color:var(--muted);
+}
+table {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+}
+th,td {
+  padding:8px;
+  border-bottom:1px solid #f3e3ec;
+  text-align:left;
+}
+th { background:var(--accent2); color:#a15c7e; }
+
+/* huellitas */
+.paw {
+  position:absolute;
+  font-size:24px;
+  opacity:0.2;
+  animation:float 10s infinite linear;
+}
+@keyframes float {
+  0% { transform:translateY(0) rotate(0); opacity:0.3; }
+  50% { opacity:0.6; }
+  100% { transform:translateY(-100vh) rotate(360deg); opacity:0; }
+}
+
+/* animación palabras */
+#words {
+  position:absolute;
+  top:10px;
+  right:10px;
+  font-size:1.5em;
+  color:#ff6392;
+  font-weight:600;
+  animation:pop 1.2s infinite alternate;
+}
+@keyframes pop { from{transform:scale(1);} to{transform:scale(1.2);} }
+
+footer {
+  text-align:center;
+  padding:20px;
+  color:var(--muted);
+  font-size:0.9em;
 }
 </style>
 </head>
 <body>
+
+<header>
+  <h1>Little Footprints 🐾</h1>
+  <p>"Cada huella cuenta, cada vida importa."</p>
+  <div id="words">Guau!</div>
+</header>
 
 <nav>
   <button onclick="goTo(0)">Inicio</button>
@@ -161,135 +168,103 @@ th, td {
   <button onclick="goTo(5)">Animales para adopción</button>
 </nav>
 
-<div class="container">
-  <div id="slides" class="slides">
+<div class="slider">
+  <div class="slides" id="slides">
 
-    <!-- INICIO -->
-    <section class="pane" style="position:relative;">
-      <h1>Refugio Esperanza Animal 🐾</h1>
-      <p style="font-style:italic;text-align:center;font-size:1.3rem;">“Cada huella cuenta: juntos podemos darles una vida mejor a los animales callejeros.”</p>
-      <p>Bienvenido a nuestro espacio dedicado a dar esperanza y segundas oportunidades a los animales que más lo necesitan. Aquí aprenderás sobre la adopción responsable, las formas de ayudar y cómo contactar apoyo en tu comunidad.</p>
-
-      <div class="paws">
-        <div class="paw" style="top:20%;left:15%;">🐾</div>
-        <div class="paw" style="top:40%;left:70%;">🐾</div>
-        <div class="paw" style="top:70%;left:40%;">🐾</div>
-      </div>
-
-      <div class="sound-word" style="top:25%;left:25%;animation-delay:0s;">¡Guau!</div>
-      <div class="sound-word" style="top:50%;left:60%;animation-delay:2s;">¡Miau!</div>
-      <div class="sound-word" style="top:40%;left:80%;animation-delay:4s;">¡Guau!</div>
+    <!-- Inicio -->
+    <section class="pane" style="text-align:center;">
+      <h2>Bienvenido a Little Footprints 🐕🐈</h2>
+      <p>Un espacio dedicado a rescatar, proteger y dar voz a los animales callejeros. Aquí encontrarás información sobre adopción responsable, cómo apoyar, contactos útiles y recursos educativos. Juntos podemos dejar una huella positiva.</p>
+      <p style="font-style:italic;color:#a15c7e;">"Los animales no necesitan palabras, su amor lo dice todo."</p>
     </section>
 
-    <!-- ADOPCIÓN RESPONSABLE -->
+    <!-- Adopción responsable -->
     <section class="pane">
-      <h2>Adopción responsable 🏡</h2>
-      <p>Adoptar un animal es un acto de amor, pero también de compromiso. Requiere responsabilidad, paciencia y la disposición de ofrecer un hogar estable y seguro. Antes de adoptar, reflexiona sobre el tiempo, espacio y recursos que puedes ofrecer.</p>
-      <div class="grid-2">
-        <div class="card">
-          <h3>Pasos previos</h3>
-          <p>1️⃣ Conocer al animal y su historia.<br>2️⃣ Evaluar si se adapta a tu estilo de vida.<br>3️⃣ Revisar condiciones del hogar (seguridad, espacio, convivencia con otros animales).<br>4️⃣ Firmar un acuerdo de adopción.</p>
-        </div>
-        <div class="card">
-          <h3>Cuidados iniciales</h3>
-          <p>✔️ Llevarlo al veterinario para chequeo.<br>✔️ Mantener una alimentación equilibrada.<br>✔️ Establecer rutinas de paseo y juego.<br>✔️ Darle tiempo para adaptarse a su nuevo hogar.</p>
-        </div>
-        <div class="card">
-          <h3>Seguimiento</h3>
-          <p>Después de la adopción, los refugios suelen hacer visitas de seguimiento para asegurar que el animal esté feliz, sano y bien cuidado. Es importante mantener el contacto y compartir actualizaciones.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- CÓMO AYUDAR -->
-    <section class="pane">
-      <h2>Cómo ayudar ❤️</h2>
-      <p>Ayudar a los animales callejeros no siempre implica adoptar. Existen muchas maneras de hacer una diferencia significativa:</p>
-      <div class="grid-3">
-        <div class="card">
-          <h3>Adopta o apadrina</h3>
-          <p>Si no puedes adoptar, considera apadrinar un animal. Tu apoyo económico o en especie ayuda a cubrir vacunas, alimento y tratamientos médicos.</p>
-        </div>
-        <div class="card">
-          <h3>Haz voluntariado</h3>
-          <p>Dedica tiempo a limpiar refugios, pasear perros, o colaborar en campañas de esterilización. Cada hora que das cambia una vida.</p>
-        </div>
-        <div class="card">
-          <h3>Dona materiales</h3>
-          <p>Los refugios siempre necesitan alimento, mantas, medicinas, artículos de limpieza, collares y juguetes. Todo aporte cuenta.</p>
-        </div>
-        <div class="card">
-          <h3>Difunde en redes</h3>
-          <p>Publica casos de adopción o animales perdidos en redes sociales. Una simple publicación puede reunir a una familia.</p>
-        </div>
-        <div class="card">
-          <h3>Reporta maltrato</h3>
-          <p>Si ves un caso de abuso o abandono, repórtalo de inmediato a autoridades locales o protectoras de animales.</p>
-        </div>
-        <div class="card">
-          <h3>Educa y sensibiliza</h3>
-          <p>Habla con tus amigos y familiares sobre la importancia de esterilizar, vacunar y adoptar en lugar de comprar. Cambiar mentalidades es ayudar.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- NÚMEROS DE AYUDA -->
-    <section class="pane">
-      <h2>Números de ayuda 🐾📞</h2>
-      <p>A continuación encontrarás una lista de contactos por estado para reportar casos de maltrato, abandono o para solicitar apoyo en adopciones y rescates:</p>
-      <table>
-        <tr><th>Estado</th><th>Teléfono de ayuda</th></tr>
-        <tr><td>Ciudad de México</td><td>55 5658 1111</td></tr>
-        <tr><td>Jalisco</td><td>33 3834 5678</td></tr>
-        <tr><td>Nuevo León</td><td>81 2020 9090</td></tr>
-        <tr><td>Coahuila</td><td>844 123 4567</td></tr>
-        <tr><td>Durango</td><td>618 245 6789</td></tr>
-        <tr><td>Yucatán</td><td>999 458 2300</td></tr>
-        <tr><td>Baja California</td><td>686 512 9900</td></tr>
-        <tr><td>Chiapas</td><td>961 875 6677</td></tr>
-        <tr><td>Sonora</td><td>662 231 4455</td></tr>
-        <tr><td>Querétaro</td><td>442 443 2121</td></tr>
-        <!-- puedes agregar más estados -->
-      </table>
-    </section>
-
-    <!-- RECURSOS -->
-    <section class="pane">
-      <h2>Recursos informativos 📚</h2>
-      <p>Encuentra aquí información útil para cuidar y proteger a los animales:</p>
+      <h2>Adopción responsable</h2>
+      <p>Adoptar es un acto de amor y compromiso. Un animal no es un juguete, sino un ser que dependerá de ti para toda su vida. Antes de adoptar, considera lo siguiente:</p>
       <ul>
-        <li><strong>Guía básica de rescate animal:</strong> Cómo actuar ante un animal herido o abandonado.</li>
-        <li><strong>Guía de alimentación saludable:</strong> Recomendaciones de veterinarios para una dieta equilibrada.</li>
-        <li><strong>Protocolo de adopción:</strong> Documentación y pasos para adoptar responsablemente.</li>
-        <li><strong>Educación responsable:</strong> Enseña a niños y adultos el respeto y empatía hacia los animales.</li>
-        <li><strong>Centros de esterilización gratuita:</strong> Ubicaciones y teléfonos en diferentes estados.</li>
+        <li><b>Tiempo:</b> Los animales requieren atención diaria, paseos, alimentación y cariño.</li>
+        <li><b>Espacio:</b> Asegúrate de tener un ambiente seguro y cómodo.</li>
+        <li><b>Economía:</b> Vacunas, alimento y visitas veterinarias son indispensables.</li>
+      </ul>
+      <p><b>Proceso de adopción:</b></p>
+      <ol>
+        <li>Llena el formulario de adopción.</li>
+        <li>Entrevista con el refugio o rescatista.</li>
+        <li>Visita domiciliaria y firma del compromiso.</li>
+        <li>Periodo de adaptación y seguimiento.</li>
+      </ol>
+      <p>Recuerda: adoptar salva dos vidas — la del animal que adoptas y la del que ocupará su lugar en el refugio.</p>
+    </section>
+
+    <!-- Cómo ayudar -->
+    <section class="pane">
+      <h2>Cómo ayudar</h2>
+      <p>Tu ayuda puede cambiar el destino de muchos animales. No necesitas grandes recursos, solo empatía y acción. Aquí algunas formas:</p>
+      <div class="grid-3">
+        <div class="pet-card"><h4>Adopta</h4><p>Ofrece un hogar a un animal rescatado.</p></div>
+        <div class="pet-card"><h4>Apadrina</h4><p>Contribuye mensualmente para alimento o tratamientos.</p></div>
+        <div class="pet-card"><h4>Voluntariado</h4><p>Apoya en refugios o campañas de esterilización.</p></div>
+        <div class="pet-card"><h4>Denuncia</h4><p>Reporta maltrato a las autoridades correspondientes.</p></div>
+        <div class="pet-card"><h4>Comparte</h4><p>Usa tus redes para promover adopciones y concienciar.</p></div>
+        <div class="pet-card"><h4>Donaciones</h4><p>Ayuda con croquetas, cobijas o donativos económicos.</p></div>
+      </div>
+      <p style="margin-top:10px;">Cada acción cuenta: incluso alimentar o hidratar a un animal callejero en tu colonia puede salvarle la vida.</p>
+    </section>
+
+    <!-- Números de ayuda -->
+    <section class="pane">
+      <h2>Números de ayuda</h2>
+      <p>Contactos útiles en toda la República Mexicana para reportar maltrato, solicitar rescates o esterilizaciones:</p>
+      <table>
+        <thead><tr><th>Estado</th><th>Organización / Unidad</th><th>Teléfono / WhatsApp</th><th>Tipo</th></tr></thead>
+        <tbody>
+          <tr><td>Coahuila</td><td>Centro de Control Animal Torreón</td><td>+52 871 742 9902</td><td>Control y rescate</td></tr>
+          <tr><td>Durango</td><td>Centro de Atención Animal Durango</td><td>+52 618 137 8698</td><td>Esterilización</td></tr>
+          <tr><td>CDMX</td><td>Brigada de Vigilancia Animal</td><td>55 5208 9898</td><td>Rescate y denuncias</td></tr>
+          <tr><td>Jalisco</td><td>Huella Verde GDL</td><td>33 1681 5771</td><td>Rescate</td></tr>
+          <tr><td>Nacional</td><td>PROFEPA</td><td>800 776 3372</td><td>Maltrato y denuncias</td></tr>
+        </tbody>
+      </table>
+      <p style="margin-top:10px;">Si no encuentras tu localidad, busca asociaciones en redes sociales o grupos de rescate locales; muchos operan de manera voluntaria.</p>
+    </section>
+
+    <!-- Recursos -->
+    <section class="pane">
+      <h2>Recursos</h2>
+      <p>Guías y materiales para cuidadores, voluntarios y adoptantes:</p>
+      <ul>
+        <li><b>Guía de primeros auxilios para mascotas:</b> cómo actuar en emergencias comunes.</li>
+        <li><b>Protocolo de rescate:</b> pasos para intervenir con seguridad.</li>
+        <li><b>Manual de adopción:</b> consejos para la adaptación en el hogar.</li>
+        <li><b>Educación infantil:</b> enseñar empatía y respeto hacia los animales.</li>
       </ul>
     </section>
 
-    <!-- ANIMALES PARA ADOPCIÓN -->
+    <!-- Animales para adopción -->
     <section class="pane">
-      <h2>Animales para adopción 🐶🐱</h2>
-      <p>Aquí podrás conocer algunos animales listos para encontrar un hogar. Cada tarjeta puede contener su foto, edad, carácter y datos de contacto.</p>
-      <div class="grid-4">
+      <h2>Animales para adopción</h2>
+      <p>Estos son algunos de los animales que esperan una familia amorosa:</p>
+      <div class="grid-3">
         <div class="pet-card">
-          <div class="pet-photo">Foto</div>
-          <h4>“Luna”</h4>
-          <p>Perrita mestiza, 2 años, muy cariñosa y juguetona.</p>
+          <div class="pet-photo">Foto aquí</div>
+          <h4>Luna</h4>
+          <p>Perrita mestiza, 2 años. Juguetona, vacunada y esterilizada.</p>
         </div>
         <div class="pet-card">
-          <div class="pet-photo">Foto</div>
-          <h4>“Tom”</h4>
-          <p>Gatito rescatado, 1 año, tranquilo y sociable.</p>
+          <div class="pet-photo">Foto aquí</div>
+          <h4>Milo</h4>
+          <p>Gato atigrado, 1 año. Cariñoso y tranquilo, ideal para departamento.</p>
         </div>
         <div class="pet-card">
-          <div class="pet-photo">Foto</div>
-          <h4>“Max”</h4>
-          <p>Perrito mediano, 3 años, ideal para familia activa.</p>
+          <div class="pet-photo">Foto aquí</div>
+          <h4>Canela</h4>
+          <p>Perrita rescatada de la calle, 3 años, muy noble y sociable.</p>
         </div>
         <div class="pet-card">
-          <div class="pet-photo">Foto</div>
-          <h4>“Nina”</h4>
-          <p>Gata adulta esterilizada, amorosa y silenciosa.</p>
+          <div class="pet-photo">Foto aquí</div>
+          <h4>Toby</h4>
+          <p>Cachorro mestizo, activo y amoroso, busca una familia que lo cuide.</p>
         </div>
       </div>
     </section>
@@ -297,9 +272,28 @@ th, td {
   </div>
 </div>
 
+<footer>
+  Little Footprints © 2025 — Red de ayuda y adopción animal. 🌸
+</footer>
+
 <script>
 const slides=document.getElementById('slides');
 function goTo(i){slides.style.transform='translateX(' + (-i*100) + '%)';}
+const words=["Guau!","Miau!","Ron-ron!","Guau!","Miau!"];
+let wi=0;
+setInterval(()=>{
+ document.getElementById('words').innerText=words[wi%words.length];
+ wi++;
+},1200);
+for(let i=0;i<15;i++){
+  const p=document.createElement('div');
+  p.className='paw';
+  p.textContent='🐾';
+  p.style.left=Math.random()*100+'vw';
+  p.style.top=Math.random()*100+'vh';
+  p.style.animationDelay=Math.random()*10+'s';
+  document.body.appendChild(p);
+}
 </script>
 
 </body>
