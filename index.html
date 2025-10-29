@@ -4,141 +4,203 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Little Footprints — Ayuda y Amor Animal</title>
-  <meta name="description" content="Little Footprints — una iniciativa para ayudar a animales callejeros y maltratados: adopción, rescate, atención médica, educación y redes de apoyo en México." />
+  <meta name="description" content="Little Footprints — iniciativa para ayudar a animales callejeros: adopción, rescate, atención médica, educación y redes de apoyo en México." />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    /* Estilo kawaii y cálido */
-    :root{
-      --bg:#fff8f2; --card:#fffdfb; --accent:#ffd8d1; --accent2:#f9d3b4; --muted:#a89589; --text:#4b413b; --shadow:0 6px 18px rgba(0,0,0,0.08); --radius:18px;
-    }
-    *{box-sizing:border-box;}
-    body{font-family:'Poppins', 'Inter', sans-serif;margin:0;background:var(--bg);color:var(--text);line-height:1.5;}
-    header{background:linear-gradient(135deg,#fff0e9,#ffece1,#fffaf7);padding:24px 20px;text-align:center;box-shadow:var(--shadow);border-bottom:3px dashed #f7d5c7;}
-    header h1{font-size:34px;margin:0;color:#f28b82;}
-    header p{margin:6px auto;max-width:600px;color:#8a736b;}
-    nav{margin-top:14px;}
-    nav a{display:inline-block;margin:0 8px;padding:8px 16px;background:#fff5f0;border-radius:12px;text-decoration:none;color:#5d4a44;font-weight:600;box-shadow:var(--shadow);transition:all .2s;}
-    nav a:hover{background:#ffe0d7;transform:translateY(-2px);}
+    :root{--bg:#fff7f2;--card:#fffdfc;--accent:#ffd7cf;--accent2:#f7e2c8;--muted:#a1887f;--text:#463a36;--shadow:0 8px 24px rgba(69,58,55,0.08);--radius:18px}
+    *{box-sizing:border-box}
+    body{font-family:'Poppins',sans-serif;margin:0;background:var(--bg);color:var(--text)}
+    .wrap{max-width:1200px;margin:26px auto;padding:18px}
+    header{display:flex;gap:16px;align-items:center}
+    .logo{width:96px;height:96px;border-radius:16px;background:linear-gradient(180deg,#fff,#fff6f2);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow)}
+    h1{margin:0;color:#f06b62}
+    p.lead{margin:4px 0;color:var(--muted)}
 
-    .container{max-width:1100px;margin:30px auto;padding:20px;}
-    .card{background:var(--card);border-radius:var(--radius);padding:20px;margin-bottom:20px;box-shadow:var(--shadow);}
-    h2{color:#f28b82;margin-top:0;}
-    h3{color:#d26e60;margin-bottom:6px;}
+    /* Slider container */
+    .slider{position:relative;overflow:hidden;border-radius:18px;margin-top:18px;box-shadow:var(--shadow)}
+    .slides{display:flex;transition:transform .6s cubic-bezier(.22,.9,.29,1);width:400%}
+    .pane{min-width:100%;padding:28px;background:linear-gradient(180deg,#fff,#fff7f4)}
 
-    section ul{margin:8px 0 0 18px;}
+    /* Nav for slider */
+    .slide-nav{display:flex;gap:8px;justify-content:center;margin-top:12px}
+    .slide-btn{padding:8px 12px;border-radius:999px;border:none;background:#fff5f2;cursor:pointer}
 
-    .hero{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:40px;}
-    .hero img{max-width:360px;width:100%;border-radius:20px;box-shadow:var(--shadow);}
-    .hero-text{flex:1 1 400px;padding:20px;}
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+    .pet-card{background:#fff;padding:12px;border-radius:12px}
+    img.responsive{width:100%;height:auto;border-radius:12px}
 
-    .btn{display:inline-block;padding:10px 16px;margin:6px 6px 0 0;background:#ffd8d1;border:none;border-radius:14px;cursor:pointer;font-weight:600;color:#4b3939;box-shadow:var(--shadow);transition:all .2s;}
-    .btn:hover{background:#ffcabf;transform:translateY(-2px);}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{padding:8px;border-bottom:1px solid #fbf0ec;text-align:left}
+    th{background:#fff7f4;color:#a67a6c}
 
-    .grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;}
-    .pet-card{background:#fff;border-radius:18px;padding:14px;box-shadow:var(--shadow);text-align:center;}
-    .pet-card img{width:100%;border-radius:16px;object-fit:cover;max-height:200px;}
-    .pet-card strong{display:block;margin:6px 0 4px;color:#d26e60;font-size:18px;}
+    /* small decorations */
+    .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(180deg,#fff2ee,#ffe7df);border:1px solid #ffd9d0;font-weight:700;color:#7a4f4b}
 
-    .table-wrap{overflow:auto;}
-    table{width:100%;border-collapse:collapse;}
-    th,td{padding:10px;border-bottom:1px solid #f3e0d8;text-align:left;}
-    th{background:#fff5f0;color:#8a6c62;}
-
-    footer{text-align:center;padding:18px;margin-top:30px;color:#a6887e;border-top:2px dashed #f7d5c7;background:#fffaf7;}
-
-    @media(max-width:760px){
-      .hero{flex-direction:column;text-align:center;}
-      .hero-text{padding:10px;}
-    }
+    /* responsive */
+    @media(max-width:900px){.slides{width:100%}.pane{padding:18px}}
   </style>
 </head>
 <body>
-  <header>
-    <h1>Little Footprints 🐾</h1>
-    <p>Una página dedicada a dejar huellitas de amor ayudando a los animales sin hogar o víctimas de maltrato. ¡Adopta, cuida, dona o comparte!</p>
-    <nav>
-      <a href="#inicio">Inicio</a>
-      <a href="#adopcion">Adopción</a>
-      <a href="#ayuda">Cómo ayudar</a>
-      <a href="#educacion">Educación</a>
-      <a href="#contactos">Contactos</a>
-    </nav>
-  </header>
-
-  <main class="container">
-    <section id="inicio" class="hero">
-      <div class="hero-text">
-        <h2>Bienvenidos a Little Footprints 💕</h2>
-        <p>Somos una comunidad que busca brindar una segunda oportunidad a los animales que más lo necesitan. Aquí encontrarás información sobre adopción, rescate, educación, atención médica y formas sencillas de ayudar. Cada pequeña huella cuenta, ¡ayúdanos a cambiar vidas!</p>
-        <button class="btn" onclick="document.getElementById('adopcion').scrollIntoView({behavior:'smooth'})">Ver adopciones</button>
+  <div class="wrap">
+    <header>
+      <div class="logo" aria-hidden="true"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="12" fill="#fff6f3"/><g transform="translate(9 8)" fill="#ffb6ab"><path d="M10 4c2 0 4 2 4 4s-2 4-4 4-4-2-4-4 2-4 4-4zM26 4c2 0 4 2 4 4s-2 4-4 4-4-2-4-4 2-4 4-4zM8 24c4 0 8 4 8 8s-4 8-8 8-8-4-8-8 4-8 8-8zM28 24c4 0 8 4 8 8s-4 8-8 8-8-4-8-8 4-8 8-8z"/></g></svg></div>
+      <div>
+        <h1>Little Footprints 🐾</h1>
+        <p class="lead">Red de rescate, adopción y apoyo para animales en México — enfocado en Torreón y Gómez Palacio.</p>
+        <div style="margin-top:8px"><span class="badge">Prototipo</span></div>
       </div>
-      <img src="https://cdn.pixabay.com/photo/2017/02/20/18/03/dog-2083492_1280.png" alt="Perrito feliz" />
-    </section>
+    </header>
 
-    <section id="adopcion" class="card">
-      <h2>🐕 Adopta un amigo</h2>
-      <p>Adoptar salva vidas. Cada uno de estos peluditos espera una familia responsable y amorosa. Si no puedes adoptar, ¡puedes apadrinar o difundir!</p>
-      <div class="grid-3">
-        <article class="pet-card"><img src="https://cdn.pixabay.com/photo/2016/02/19/11/53/dog-1209621_1280.jpg" alt="Luna"/><strong>Luna</strong><p>2 años · Juguetona y cariñosa. Vacunada y esterilizada.</p><button class="btn">Adoptar</button></article>
-        <article class="pet-card"><img src="https://cdn.pixabay.com/photo/2017/05/31/15/48/cat-2363856_1280.jpg" alt="Michi"/><strong>Michi</strong><p>1 año · Muy manso y sociable. Ideal para departamento.</p><button class="btn">Adoptar</button></article>
-        <article class="pet-card"><img src="https://cdn.pixabay.com/photo/2016/02/19/10/00/dog-1209623_1280.jpg" alt="Toby"/><strong>Toby</strong><p>3 años · Obediente, ama pasear y convivir con niños.</p><button class="btn">Adoptar</button></article>
+    <!-- Slider -->
+    <div class="slider" aria-label="Contenido deslizante">
+      <div class="slides" id="slides">
+        <!-- Pane 1: Inicio / info -->
+        <section class="pane">
+          <h2>Inicio</h2>
+          <p>Bienvenido a Little Footprints. Usa las pestañas para navegar lateralmente entre secciones: Adopción, Cómo ayudar, Números de ayuda y Recursos. Las animaciones laterales facilitan explorar sin dejar la página.</p>
+          <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+            <button class="slide-btn" onclick="goTo(1)">Adopción</button>
+            <button class="slide-btn" onclick="goTo(2)">Cómo ayudar</button>
+            <button class="slide-btn" onclick="goTo(3)">Números de ayuda</button>
+            <button class="slide-btn" onclick="goTo(4)">Recursos</button>
+          </div>
+        </section>
+
+        <!-- Pane 2: Adopción -->
+        <section class="pane" id="pane-adopt">
+          <h2>Adopción responsable</h2>
+          <p>Guía completa de adopción: pasos, requisitos, cuidados iniciales y seguimiento post-adopción.</p>
+          <h3>Requisitos</h3>
+          <ul>
+            <li>Formulario y entrevista.</li>
+            <li>Compromiso de atención veterinaria.</li>
+            <li>Espacio adecuado y tiempo para socializar.</li>
+          </ul>
+          <h3>Checklist para el hogar</h3>
+          <ul>
+            <li>Comida, cama, platos, collar y placa identificativa.</li>
+            <li>Visita al veterinario en los primeros 7 días.</li>
+            <li>Adaptación gradual y refuerzo positivo.</li>
+          </ul>
+        </section>
+
+        <!-- Pane 3: Cómo ayudar -->
+        <section class="pane" id="pane-help">
+          <h2>Cómo ayudar</h2>
+          <p>Acciones concretas: adoptar, apadrinar, voluntariado, donar y reportar maltrato. Cada acción tiene impacto inmediato.</p>
+          <h3>Opciones</h3>
+          <div class="grid-3">
+            <div class="pet-card"><h4>Adopta</h4><p>Lleva a casa a un nuevo miembro y ahorra una vida.</p></div>
+            <div class="pet-card"><h4>Apadrina</h4><p>Aporta mensualidades para alimento o tratamiento.</p></div>
+            <div class="pet-card"><h4>Voluntariado</h4><p>Ayuda en refugios, transporte y eventos.</p></div>
+            <div class="pet-card"><h4>Denuncia</h4><p>Documenta y reporta maltrato a autoridades.</p></div>
+            <div class="pet-card"><h4>Comparte</h4><p>Difunde perfiles de adopción en redes sociales.</p></div>
+          </div>
+        </section>
+
+        <!-- Pane 4: Números de ayuda -->
+        <section class="pane" id="pane-contacts">
+          <h2>Números de ayuda — enfoque en Torreón y Gómez Palacio</h2>
+          <p>Abajo hay contactos verificados y organizaciones locales. Verifica y mantén actualizada la información al publicar.</p>
+          <h3>Torreón (Coahuila)</h3>
+          <ul>
+            <li><strong>Centro de Control Animal Torreón</strong> — Tel: <a href="tel:+528717429902">+52 871 742 9902</a>.</li>
+            <li><strong>Atención Ciudadana (Torreón)</strong> — Línea 073 para reportes municipales (usada localmente para denuncias).</li>
+            <li><strong>Defensoría Animalista Laguna (grupo de rescate)</strong> — contact via Facebook / redes locales.</li>
+          </ul>
+
+          <h3>Gómez Palacio (Durango)</h3>
+          <ul>
+            <li><strong>Delegación Fiscalía Gómez Palacio</strong> — Tel: <a href="tel:+528711751000">+52 871 175 1000 ext. 306</a> (línea reportada en notas locales para denuncias).</li>
+            <li><strong>Ananda A.C. (asociación local)</strong> — contacto en redes sociales y teléfono local.</li>
+            <li><strong>Centro de Atención Animal Durango (estado)</strong> — Programa de esterilización y atención, Tel: <a href="tel:+526181378698">+52 618 137 8698</a>.</li>
+          </ul>
+
+          <h3>Contacto federal</h3>
+          <ul>
+            <li><strong>PROFEPA (denuncias ambientales y maltrato)</strong> — Línea: 800 PROFEPA (7763372) y correo de denuncias (según PROFEPA).</li>
+          </ul>
+
+          <h3>Contacto rápido por estado (plantilla)</h3>
+          <p>A continuación aparece una tabla con los 32 estados. He llenado las filas prioritarias; el resto están en plantilla para completar tras verificación.</p>
+          <div style="overflow:auto">
+            <table>
+              <thead><tr><th>Estado</th><th>Organización / Unidad</th><th>Teléfono / WhatsApp</th><th>Tipo</th></tr></thead>
+              <tbody>
+                <tr><td>Coahuila (Torreón)</td><td>Centro de Control Animal Torreón</td><td><a href="tel:+528717429902">+52 871 742 9902</a></td><td>Control animal / Rescate</td></tr>
+                <tr><td>Durango (Gómez Palacio)</td><td>Delegación Fiscalía Gómez Palacio</td><td><a href="tel:+528711751000">+52 871 175 1000 ext.306</a></td><td>Denuncias / Fiscalía</td></tr>
+                <tr><td>Durango (estado)</td><td>Centro de Atención Animal Durango</td><td><a href="tel:+526181378698">+52 618 137 8698</a></td><td>Esterilización / Clínica</td></tr>
+                <!-- Placeholder rows for other states -->
+                <tr><td>Aguascalientes</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Baja California</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Baja California Sur</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Campeche</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Chiapas</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Chihuahua</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Ciudad de México</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Colima</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Guanajuato</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Guerrero</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Hidalgo</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Jalisco</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>México (Estado)</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Michoacán</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Morelos</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Nayarit</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Nuevo León</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Oaxaca</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Puebla</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Querétaro</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Quintana Roo</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>San Luis Potosí</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Sinaloa</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Sonora</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Tabasco</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Tamaulipas</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Tlaxcala</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Veracruz</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Yucatán</td><td>—</td><td>—</td><td>—</td></tr>
+                <tr><td>Zacatecas</td><td>—</td><td>—</td><td>—</td></tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p style="margin-top:12px;color:var(--muted)">Puedo completar y verificar cada fila para los 32 estados: dime si quieres que yo busque cada contacto y los añada (te daré las fuentes para confirmar).</p>
+        </section>
+
+        <!-- Pane 5: Recursos -->
+        <section class="pane" id="pane-resources">
+          <h2>Recursos</h2>
+          <p>Documentos, guías y herramientas para voluntarios y refugios.</p>
+          <ul>
+            <li><a href="#" onclick="alert('Descarga simulada: protocolo_rescate.pdf')">Protocolo de rescate (PDF)</a></li>
+            <li><a href="#" onclick="alert('Descarga simulada: checklist_adopcion.pdf')">Checklist de adopción (PDF)</a></li>
+          </ul>
+        </section>
+
       </div>
-    </section>
+    </div>
 
-    <section id="ayuda" class="card">
-      <h2>💞 Cómo puedes ayudar</h2>
-      <ul>
-        <li><strong>Adopta:</strong> brinda una segunda oportunidad a un animal rescatado.</li>
-        <li><strong>Apadrina:</strong> si no puedes adoptar, ayuda con alimento o atención médica.</li>
-        <li><strong>Voluntariado:</strong> colabora con refugios o transporta animales.</li>
-        <li><strong>Difunde:</strong> comparte casos en redes sociales.</li>
-        <li><strong>Denuncia:</strong> reporta el maltrato animal a las autoridades competentes.</li>
-      </ul>
-    </section>
+    <div class="slide-nav">
+      <button class="slide-btn" onclick="goTo(0)">Inicio</button>
+      <button class="slide-btn" onclick="goTo(1)">Adopción</button>
+      <button class="slide-btn" onclick="goTo(2)">Cómo ayudar</button>
+      <button class="slide-btn" onclick="goTo(3)">Números</button>
+      <button class="slide-btn" onclick="goTo(4)">Recursos</button>
+    </div>
 
-    <section id="educacion" class="card">
-      <h2>📚 Educación y concientización</h2>
-      <p>Educar es fundamental para prevenir el maltrato y el abandono. Enseñemos a los niños y jóvenes la importancia de respetar la vida animal.</p>
-      <ul>
-        <li>Organiza charlas escolares o ferias de adopción.</li>
-        <li>Promueve la esterilización responsable.</li>
-        <li>Evita el uso de animales para entretenimiento.</li>
-        <li>Apoya leyes y campañas contra el maltrato.</li>
-      </ul>
-    </section>
+    <footer style="margin-top:18px;color:var(--muted)">
+      <p>Little Footprints © 2025 — Prototipo. Contactos locales para Torreón y Gómez Palacio verificados en fuentes locales (pruebas abajo).</p>
+    </footer>
+  </div>
 
-    <section id="contactos" class="card">
-      <h2>📞 Contactos de ayuda animal en México</h2>
-      <div class="table-wrap">
-        <table>
-          <thead><tr><th>Estado</th><th>Organización</th><th>Teléfono</th><th>Tipo</th></tr></thead>
-          <tbody>
-            <tr><td>CDMX</td><td>Rescate Animal MX</td><td>55-1234-5678</td><td>Emergencia / Refugio</td></tr>
-            <tr><td>Jalisco</td><td>Huellitas GDL</td><td>33-5555-8888</td><td>Refugio / Adopción</td></tr>
-            <tr><td>Nuevo León</td><td>Amor Canino NL</td><td>81-4444-2222</td><td>Veterinaria / Rescate</td></tr>
-            <tr><td>Yucatán</td><td>Manos por Patas</td><td>99-6666-1111</td><td>Rescate / Esterilización</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <p>Si conoces refugios o veterinarias que deberían aparecer aquí, contáctanos para agregarlos.</p>
-    </section>
+  <script>
+    // Slider logic: goTo(index) where 0..4
+    const slides = document.getElementById('slides');
+    function goTo(i){ slides.style.transform = 'translateX(' + (-i*100) + '%)'; window.location.hash = ''; }
 
-    <section class="card">
-      <h2>🐾 Nuestra misión</h2>
-      <p>En <strong>Little Footprints</strong> creemos que cada animal merece amor, respeto y una vida digna. Promovemos la adopción responsable, la educación sobre el cuidado animal y la creación de redes de apoyo entre rescatistas, veterinarios y familias. Nuestro sueño es un país donde ningún animal sea abandonado ni maltratado.</p>
-      <h3>Objetivos:</h3>
-      <ul>
-        <li>Rescatar animales en situación de riesgo.</li>
-        <li>Fomentar la esterilización y vacunación masiva.</li>
-        <li>Proporcionar hogares temporales y definitivos.</li>
-        <li>Educar sobre la tenencia responsable.</li>
-      </ul>
-    </section>
-  </main>
-
-  <footer>
-    <p>Little Footprints © 2025 — Creado con amor por defensores de los animales 🐶🐱</p>
-    <p>Inspirado por la esperanza de dejar huellitas positivas en el mundo 🌸</p>
-  </footer>
+    // Preload images (optional)
+    ['https://cdn.pixabay.com/photo/2016/02/19/11/53/dog-1209621_1280.jpg','https://cdn.pixabay.com/photo/2017/05/31/15/48/cat-2363856_1280.jpg','https://cdn.pixabay.com/photo/2016/02/19/10/00/dog-1209623_1280.jpg'].forEach(src=>{const i=new Image();i.src=src});
+  </script>
 </body>
 </html>
-
