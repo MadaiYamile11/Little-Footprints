@@ -26,18 +26,23 @@ nav{display:flex;gap:10px;justify-content:center;margin-bottom:20px;flex-wrap:wr
 nav button{padding:10px 16px;border-radius:999px;border:none;background:var(--accent);cursor:pointer;font-weight:500;transition:0.3s;}
 nav button:hover{background:var(--accent2);}
 
-h1{font-size:3rem;color:var(--title);text-align:center;margin-bottom:10px;}
+h1{font-size:3rem;color:var(--title);text-align:center;margin-bottom:10px;font-style:italic;}
 h2{font-size:2rem;color:var(--title);margin-bottom:10px;}
 h3{font-size:1.2rem;color:var(--title);margin-top:12px;}
 p.lead{margin:4px 0;color:var(--muted);font-size:1rem;font-style:italic;text-align:center;}
 
 .slider{position:relative;overflow:hidden;border-radius:18px;box-shadow:var(--shadow);}
-.slides{display:flex;transition:transform .6s cubic-bezier(.22,.9,.29,1);width:500%;}
+.slides{display:flex;transition:transform .6s cubic-bezier(.22,.9,.29,1);width:600%;}
 .pane{min-width:100%;padding:28px;background:linear-gradient(180deg,#fff,#fff7f4);border-radius:18px;position:relative;}
 
-.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:12px;}
-.pet-card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin-top:12px;}
+.pet-card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);min-height:130px;display:flex;flex-direction:column;justify-content:flex-start;transition:0.4s;}
+.pet-card:hover{transform:translateY(-5px);box-shadow:0 12px 28px rgba(69,58,55,0.12);}
 
+/* Animación tarjetas animales */
+.pet-card img{width:100%;height:auto;border-radius:12px;margin-bottom:8px;}
+
+/* tabla */
 table{width:100%;border-collapse:collapse;margin-top:12px;}
 th,td{padding:8px;border-bottom:1px solid #fbf0ec;text-align:left;}
 th{background:var(--accent2);color:#a67a6c;font-weight:600;}
@@ -51,7 +56,7 @@ th{background:var(--accent2);color:#a67a6c;font-weight:600;}
 }
 
 /* Palabras animadas */
-.sound-word{position:absolute;font-weight:700;font-size:1.3em;color:#f06b62;opacity:0;pointer-events:none;animation:appear 2s forwards;z-index:3;}
+.sound-word{position:absolute;font-weight:700;font-size:1.3em;color:#f06b62;opacity:0;pointer-events:none;animation:appear 2s infinite;z-index:3;}
 @keyframes appear{
   0%{opacity:0;transform:translateY(10px);}
   50%{opacity:1;}
@@ -72,10 +77,11 @@ th{background:var(--accent2);color:#a67a6c;font-weight:600;}
   <!-- Navegación arriba -->
   <nav>
     <button onclick="goTo(0)">Inicio</button>
-    <button onclick="goTo(1)">Adopción</button>
+    <button onclick="goTo(1)">Adopción responsable</button>
     <button onclick="goTo(2)">Cómo ayudar</button>
     <button onclick="goTo(3)">Números de ayuda</button>
     <button onclick="goTo(4)">Recursos</button>
+    <button onclick="goTo(5)">Animales para adopción</button>
   </nav>
 
   <!-- Slider -->
@@ -86,55 +92,33 @@ th{background:var(--accent2);color:#a67a6c;font-weight:600;}
       <section class="pane">
         <h2>Bienvenido a Little Footprints</h2>
         <p>Usa las pestañas arriba para explorar todas las secciones. Little Footprints es una red dedicada a proteger, rescatar y educar sobre los animales callejeros. Aquí encontrarás información completa y consejos para la adopción, cuidado, voluntariado y contacto con autoridades.</p>
-        <h3>Misión</h3>
-        <p>Nuestra misión es rescatar animales en situación de calle, promover adopciones responsables y brindar educación comunitaria sobre bienestar animal.</p>
-        <h3>Visión</h3>
-        <p>Ser una red confiable de ayuda animal en México, especialmente en Torreón y Gómez Palacio, inspirando a la sociedad a cuidar de cada vida.</p>
-        <h3>Valores</h3>
-        <ul>
-          <li>Respeto por la vida animal.</li>
-          <li>Transparencia en nuestras acciones.</li>
-          <li>Responsabilidad y compromiso con cada adopción.</li>
-          <li>Educación y concienciación en la comunidad.</li>
-          <li>Colaboración con refugios, voluntarios y autoridades locales.</li>
-        </ul>
       </section>
 
-      <!-- Adopción -->
+      <!-- Adopción responsable -->
       <section class="pane">
         <h2>Adopción responsable</h2>
-        <p>Adoptar no es solo dar un hogar, sino comprometerse con la vida y bienestar del animal. Aquí está todo lo que necesitas saber:</p>
+        <p>Adoptar no es solo dar un hogar, sino comprometerse con la vida y bienestar del animal. Aquí está toda la información detallada:</p>
         <h3>Pasos de adopción</h3>
         <ol>
-          <li>Completar el formulario de adopción con datos reales y honestos.</li>
-          <li>Entrevista para conocer estilo de vida, espacio y tiempo disponible.</li>
-          <li>Visita inicial al animal para conocerlo y evaluar compatibilidad.</li>
-          <li>Verificación del hogar: seguridad, espacio y ambiente adecuado.</li>
-          <li>Compromiso de atención veterinaria y seguimiento post-adopción.</li>
-          <li>Entrega formal y orientación de cuidados.</li>
+          <li>Formulario completo y entrevista del adoptante.</li>
+          <li>Visita al hogar y evaluación de espacio y seguridad.</li>
+          <li>Entrega del animal con guía de cuidados iniciales.</li>
+          <li>Seguimiento post-adopción y asistencia veterinaria.</li>
         </ol>
         <h3>Checklist para el hogar</h3>
         <ul>
           <li>Alimento balanceado y agua limpia.</li>
-          <li>Cama, juguetes y espacio cómodo y seguro.</li>
-          <li>Collar con placa identificativa y microchip si es posible.</li>
-          <li>Visita a veterinario en los primeros 7 días para revisión general.</li>
-          <li>Adaptación gradual con refuerzos positivos y supervisión constante.</li>
-          <li>Educación básica sobre conducta y socialización.</li>
-        </ul>
-        <h3>Consejos de salud y seguridad</h3>
-        <ul>
-          <li>Mantener vacunación y desparasitación al día.</li>
-          <li>Evitar estrés mediante cambios graduales en el entorno.</li>
-          <li>Supervisión con niños, otros animales y visitas externas.</li>
-          <li>Evitar exposición a peligros como calles transitadas o químicos.</li>
+          <li>Cama, juguetes, espacio seguro.</li>
+          <li>Collar con identificación y microchip si es posible.</li>
+          <li>Visita a veterinario en primeros 7 días.</li>
+          <li>Socialización gradual y refuerzo positivo.</li>
         </ul>
       </section>
 
       <!-- Cómo ayudar -->
       <section class="pane">
         <h2>Cómo ayudar</h2>
-        <p>Existen muchas formas de marcar la diferencia:</p>
+        <p>Existen muchas formas de marcar la diferencia. Cada acción impacta vidas.</p>
         <div class="grid-3">
           <div class="pet-card"><h4>Adopta</h4><p>Lleva a casa un animal rescatado y ofrece una vida segura y llena de amor.</p></div>
           <div class="pet-card"><h4>Apadrina</h4><p>Contribuye mensualmente con alimentos, medicinas o atención veterinaria para un animal en refugio.</p></div>
@@ -162,11 +146,8 @@ th{background:var(--accent2);color:#a67a6c;font-weight:600;}
               <tr><td>Coahuila (Torreón)</td><td>Centro de Control Animal Torreón</td><td>+52 871 742 9902</td><td>Control animal / Rescate</td></tr>
               <tr><td>Durango (Gómez Palacio)</td><td>Delegación Fiscalía Gómez Palacio</td><td>+52 871 175 1000 ext.306</td><td>Denuncias / Fiscalía</td></tr>
               <tr><td>Durango (estado)</td><td>Centro de Atención Animal Durango</td><td>+52 618 137 8698</td><td>Esterilización / Clínica</td></tr>
-              <!-- Resto de estados plantilla -->
-              <tr><td>Aguascalientes</td><td>—</td><td>—</td><td>—</td></tr>
-              <tr><td>Baja California</td><td>—</td><td>—</td><td>—</td></tr>
-              <tr><td>Baja California Sur</td><td>—</td><td>—</td><td>—</td></tr>
-              <tr><td>Campeche</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>Aguascalientes</td><td>Protección Animal Aguascalientes</td><td>+52 449 910 0000</td><td>Rescate / Adopción</td></tr>
+              <tr><td>Baja California</td><td>Centro de Control Animal BC</td><td>+52 664 123 4567</td><td>Rescate</td></tr>
             </tbody>
           </table>
         </div>
@@ -175,37 +156,30 @@ th{background:var(--accent2);color:#a67a6c;font-weight:600;}
       <!-- Recursos -->
       <section class="pane">
         <h2>Recursos y guías completas</h2>
-        <h3>Protocolo de rescate</h3>
-        <p>1. Detectar animal en riesgo.<br>
-        2. Evaluar seguridad del rescate.<br>
-        3. Transportar con cuidado.<br>
-        4. Evaluación veterinaria inmediata.<br>
-        5. Registro en refugio y seguimiento de salud.<br>
-        6. Aplicar tratamientos y vacunas necesarios.<br>
-        7. Preparar para adopción con socialización y entrenamiento.</p>
+        <p>Documentos, protocolos y guías para adopción, rescate y voluntariado.</p>
+      </section>
 
-        <h3>Checklist de adopción</h3>
-        <p>1. Confirmar datos del adoptante y hogar.<br>
-        2. Preparar espacio seguro y cómodo.<br>
-        3. Entregar guía de cuidado inicial.<br>
-        4. Revisión y seguimiento a los 7, 14 y 30 días.<br>
-        5. Educación sobre alimentación, higiene y socialización.<br>
-        6. Consejos sobre salud preventiva y vacunación.</p>
-
-        <h3>Manual de voluntariado</h3>
-        <p>1. Apoyo en refugio, transporte y rescate.<br>
-        2. Participación en eventos y campañas de concienciación.<br>
-        3. Capacitación en manejo de animales y primeros auxilios.<br>
-        4. Comunicación con adoptantes y seguimiento de animales.<br>
-        5. Promoción de adopciones y apadrinamientos.</p>
-
-        <h3>Guía de cuidados iniciales</h3>
-        <p>1. Alimentación equilibrada y adecuada por edad y peso.<br>
-        2. Higiene del espacio y juguetes.<br>
-        3. Socialización con personas y otros animales.<br>
-        4. Prevención de accidentes y cuidado en exterior.<br>
-        5. Visitas veterinarias periódicas.<br>
-        6. Educación básica sobre comportamiento animal y refuerzo positivo.</p>
+      <!-- Animales para adopción -->
+      <section class="pane">
+        <h2>Animales para adopción 🐶🐱</h2>
+        <p>Aquí podrás ver algunos de los animales que buscan un hogar. Cada tarjeta representa un animal rescatado y está lista para agregar su foto e información.</p>
+        <div class="grid-3">
+          <div class="pet-card" style="text-align:center;">
+            <div style="width:100%;height:180px;background:var(--accent2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--title);">Foto del animal</div>
+            <h4>Nombre del animal</h4>
+            <p>Edad, especie, descripción breve.</p>
+          </div>
+          <div class="pet-card" style="text-align:center;">
+            <div style="width:100%;height:180px;background:var(--accent2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--title);">Foto del animal</div>
+            <h4>Nombre del animal</h4>
+            <p>Edad, especie, descripción breve.</p>
+          </div>
+          <div class="pet-card" style="text-align:center;">
+            <div style="width:100%;height:180px;background:var(--accent2);border-radius:12px;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--title);">Foto del animal</div>
+            <h4>Nombre del animal</h4>
+            <p>Edad, especie, descripción breve.</p>
+          </div>
+        </div>
       </section>
 
     </div>
@@ -228,13 +202,18 @@ th{background:var(--accent2);color:#a67a6c;font-weight:600;}
 <div class="sound-word" style="top:40%;left:70%;animation-delay:2s;">¡Guau!</div>
 
 <script>
-// Slider logic
+// Slider
 const slides=document.getElementById('slides');
-function goTo(i){slides.style.transform='translateX(' + (-i*100) + '%)';window.location.hash='';}
+function goTo(i){slides.style.transform='translateX(' + (-i*100) + '%)';}
 
-// Animación repetitiva de palabras
+// Animación de palabras (ciclo infinito)
 const words=document.querySelectorAll('.sound-word');
-setInterval(()=>{words.forEach(w=>{w.style.animation='appear 2s forwards'});},3000);
+let wordIndex=0;
+setInterval(()=>{
+  words.forEach(w=>w.style.opacity=0);
+  words[wordIndex].style.opacity=1;
+  wordIndex=(wordIndex+1)%words.length;
+},2000);
 </script>
 </body>
 </html>
