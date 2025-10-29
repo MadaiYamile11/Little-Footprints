@@ -1,169 +1,143 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Una Huella a la Vez 🐾</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Little Footprints — Ayuda y Amor Animal</title>
+  <meta name="description" content="Little Footprints — una iniciativa para ayudar a animales callejeros y maltratados: adopción, rescate, atención médica, educación y redes de apoyo en México." />
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
-
-    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins', sans-serif;}
-    body {background:#fff7f1; color:#333; overflow-x:hidden;}
-
-    /* NAVBAR */
-    nav {position:fixed; top:0; width:100%; background:#ff914d; color:#fff; display:flex; justify-content:space-between; align-items:center; padding:14px 40px; z-index:10; box-shadow:0 2px 8px rgba(0,0,0,0.1);}
-    nav h1 {font-size:22px; font-weight:700;}
-    nav ul {list-style:none; display:flex; gap:25px;}
-    nav ul li a {text-decoration:none; color:#fff; font-weight:500; transition:0.3s;}
-    nav ul li a:hover {color:#ffe7c3;}
-
-    /* HEADER */
-    header {height:100vh; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; background: linear-gradient(180deg, #ffb07c, #fff7f1); padding-top:60px; position:relative;}
-    header h2 {font-size:3rem; color:#ff5e3a; margin-bottom:20px; text-shadow:2px 2px 4px rgba(0,0,0,0.2);}
-    header p {color:#333; font-size:1.2rem; max-width:700px; margin:0 auto 40px;}
-
-    /* SVG ANIMAL */
-    .animal-svg {width:300px; height:auto; margin-bottom:20px;}
-
-    /* SECCIONES */
-    section {padding:80px 20px; max-width:1000px; margin:auto;}
-    h2.section-title {text-align:center; color:#ff914d; font-size:2.2rem; margin-bottom:30px;}
-    .card {background:#fffaf0; border-radius:15px; padding:25px; margin:20px 0; box-shadow:0 5px 15px rgba(0,0,0,0.1); transition:transform 0.3s;}
-    .card:hover {transform:translateY(-5px);}
-
-    ul {margin-left:25px; margin-top:8px;}
-
-    /* CONTACTOS */
-    .contactos {display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px;}
-    .contacto-card {background:#fff; padding:20px; border-radius:12px; box-shadow:0 3px 10px rgba(0,0,0,0.1);}
-
-    /* ANIMACIONES HUELLITAS */
-    @keyframes pawMove {
-      0% {transform:translateX(-10px) rotate(10deg); opacity:0.3;}
-      50% {opacity:1;}
-      100% {transform:translateX(10px) rotate(-10deg); opacity:0.3;}
+    /* Estilo kawaii y cálido */
+    :root{
+      --bg:#fff8f2; --card:#fffdfb; --accent:#ffd8d1; --accent2:#f9d3b4; --muted:#a89589; --text:#4b413b; --shadow:0 6px 18px rgba(0,0,0,0.08); --radius:18px;
     }
-    .paw {position:absolute; width:50px; opacity:0.3; animation:pawMove 4s infinite alternate ease-in-out;}
-    .paw:nth-child(1){top:10%;left:5%; animation-delay:0.5s;}
-    .paw:nth-child(2){top:25%;right:10%; animation-delay:1s;}
-    .paw:nth-child(3){bottom:15%;left:15%; animation-delay:1.5s;}
-    .paw:nth-child(4){bottom:10%;right:20%; animation-delay:2s;}
+    *{box-sizing:border-box;}
+    body{font-family:'Poppins', 'Inter', sans-serif;margin:0;background:var(--bg);color:var(--text);line-height:1.5;}
+    header{background:linear-gradient(135deg,#fff0e9,#ffece1,#fffaf7);padding:24px 20px;text-align:center;box-shadow:var(--shadow);border-bottom:3px dashed #f7d5c7;}
+    header h1{font-size:34px;margin:0;color:#f28b82;}
+    header p{margin:6px auto;max-width:600px;color:#8a736b;}
+    nav{margin-top:14px;}
+    nav a{display:inline-block;margin:0 8px;padding:8px 16px;background:#fff5f0;border-radius:12px;text-decoration:none;color:#5d4a44;font-weight:600;box-shadow:var(--shadow);transition:all .2s;}
+    nav a:hover{background:#ffe0d7;transform:translateY(-2px);}
 
-    footer {text-align:center; background:#ff914d; color:#fff; padding:20px; margin-top:40px; font-size:0.9rem;}
+    .container{max-width:1100px;margin:30px auto;padding:20px;}
+    .card{background:var(--card);border-radius:var(--radius);padding:20px;margin-bottom:20px;box-shadow:var(--shadow);}
+    h2{color:#f28b82;margin-top:0;}
+    h3{color:#d26e60;margin-bottom:6px;}
 
-    @media(max-width:768px){
-      header h2{font-size:2.2rem;}
-      nav{flex-direction:column; gap:10px; padding:10px;}
+    section ul{margin:8px 0 0 18px;}
+
+    .hero{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:40px;}
+    .hero img{max-width:360px;width:100%;border-radius:20px;box-shadow:var(--shadow);}
+    .hero-text{flex:1 1 400px;padding:20px;}
+
+    .btn{display:inline-block;padding:10px 16px;margin:6px 6px 0 0;background:#ffd8d1;border:none;border-radius:14px;cursor:pointer;font-weight:600;color:#4b3939;box-shadow:var(--shadow);transition:all .2s;}
+    .btn:hover{background:#ffcabf;transform:translateY(-2px);}
+
+    .grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;}
+    .pet-card{background:#fff;border-radius:18px;padding:14px;box-shadow:var(--shadow);text-align:center;}
+    .pet-card img{width:100%;border-radius:16px;object-fit:cover;max-height:200px;}
+    .pet-card strong{display:block;margin:6px 0 4px;color:#d26e60;font-size:18px;}
+
+    .table-wrap{overflow:auto;}
+    table{width:100%;border-collapse:collapse;}
+    th,td{padding:10px;border-bottom:1px solid #f3e0d8;text-align:left;}
+    th{background:#fff5f0;color:#8a6c62;}
+
+    footer{text-align:center;padding:18px;margin-top:30px;color:#a6887e;border-top:2px dashed #f7d5c7;background:#fffaf7;}
+
+    @media(max-width:760px){
+      .hero{flex-direction:column;text-align:center;}
+      .hero-text{padding:10px;}
     }
   </style>
 </head>
 <body>
-
-  <nav>
-    <h1>🐾 Una Huella a la Vez</h1>
-    <ul>
-      <li><a href="#inicio">Inicio</a></li>
-      <li><a href="#ayuda">Cómo ayudar</a></li>
-      <li><a href="#confianza">Confianza</a></li>
-      <li><a href="#contactos">Contactos</a></li>
-      <li><a href="#denuncia">Denunciar</a></li>
-    </ul>
-  </nav>
-
-  <header id="inicio">
-    <!-- SVG GATO Y PERRO -->
-    <svg class="animal-svg" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
-      <g>
-        <!-- Perro -->
-        <ellipse cx="100" cy="100" rx="50" ry="30" fill="#d69f6f" />
-        <circle cx="80" cy="85" r="10" fill="#fff" />
-        <circle cx="120" cy="85" r="10" fill="#fff" />
-        <circle cx="80" cy="85" r="5" fill="#000" />
-        <circle cx="120" cy="85" r="5" fill="#000" />
-        <ellipse cx="100" cy="105" rx="15" ry="10" fill="#000" />
-        <!-- Gato -->
-        <ellipse cx="200" cy="100" rx="40" ry="25" fill="#f4c276" />
-        <circle cx="185" cy="90" r="8" fill="#fff" />
-        <circle cx="215" cy="90" r="8" fill="#fff" />
-        <circle cx="185" cy="90" r="4" fill="#000" />
-        <circle cx="215" cy="90" r="4" fill="#000" />
-        <ellipse cx="200" cy="105" rx="12" ry="7" fill="#000" />
-      </g>
-    </svg>
-    <h2>Una Huella a la Vez</h2>
-    <p>Ayudemos juntos a los animales callejeros y víctimas de maltrato. Cada huella cuenta para cambiar una vida.</p>
+  <header>
+    <h1>Little Footprints 🐾</h1>
+    <p>Una página dedicada a dejar huellitas de amor ayudando a los animales sin hogar o víctimas de maltrato. ¡Adopta, cuida, dona o comparte!</p>
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#adopcion">Adopción</a>
+      <a href="#ayuda">Cómo ayudar</a>
+      <a href="#educacion">Educación</a>
+      <a href="#contactos">Contactos</a>
+    </nav>
   </header>
 
-  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="paw" alt="huella">
-  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="paw" alt="huella">
-  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="paw" alt="huella">
-  <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" class="paw" alt="huella">
+  <main class="container">
+    <section id="inicio" class="hero">
+      <div class="hero-text">
+        <h2>Bienvenidos a Little Footprints 💕</h2>
+        <p>Somos una comunidad que busca brindar una segunda oportunidad a los animales que más lo necesitan. Aquí encontrarás información sobre adopción, rescate, educación, atención médica y formas sencillas de ayudar. Cada pequeña huella cuenta, ¡ayúdanos a cambiar vidas!</p>
+        <button class="btn" onclick="document.getElementById('adopcion').scrollIntoView({behavior:'smooth'})">Ver adopciones</button>
+      </div>
+      <img src="https://cdn.pixabay.com/photo/2017/02/20/18/03/dog-2083492_1280.png" alt="Perrito feliz" />
+    </section>
 
-  <main>
-    <section id="ayuda">
-      <h2 class="section-title">Cómo Puedes Ayudar</h2>
-      <div class="card">
-        <ul>
-          <li>Reporta casos de maltrato o abandono a las autoridades locales.</li>
-          <li>Ofrece alimento o refugio temporal.</li>
-          <li>Apoya campañas de esterilización y adopción responsable.</li>
-          <li>Educa a tu comunidad sobre el cuidado y respeto animal.</li>
-          <li>Participa en voluntariados de rescate y protección.</li>
-        </ul>
+    <section id="adopcion" class="card">
+      <h2>🐕 Adopta un amigo</h2>
+      <p>Adoptar salva vidas. Cada uno de estos peluditos espera una familia responsable y amorosa. Si no puedes adoptar, ¡puedes apadrinar o difundir!</p>
+      <div class="grid-3">
+        <article class="pet-card"><img src="https://cdn.pixabay.com/photo/2016/02/19/11/53/dog-1209621_1280.jpg" alt="Luna"/><strong>Luna</strong><p>2 años · Juguetona y cariñosa. Vacunada y esterilizada.</p><button class="btn">Adoptar</button></article>
+        <article class="pet-card"><img src="https://cdn.pixabay.com/photo/2017/05/31/15/48/cat-2363856_1280.jpg" alt="Michi"/><strong>Michi</strong><p>1 año · Muy manso y sociable. Ideal para departamento.</p><button class="btn">Adoptar</button></article>
+        <article class="pet-card"><img src="https://cdn.pixabay.com/photo/2016/02/19/10/00/dog-1209623_1280.jpg" alt="Toby"/><strong>Toby</strong><p>3 años · Obediente, ama pasear y convivir con niños.</p><button class="btn">Adoptar</button></article>
       </div>
     </section>
 
-    <section id="confianza">
-      <h2 class="section-title">Ganar la Confianza de un Animal</h2>
-      <div class="card">
-        <ul>
-          <li>Acércate despacio y evita movimientos bruscos.</li>
-          <li>Permite que el animal se acerque por su cuenta.</li>
-          <li>Habla con voz suave y tranquila.</li>
-          <li>Usa comida como incentivo y recompensa.</li>
-          <li>Observa lenguaje corporal para respetar sus límites.</li>
-        </ul>
-      </div>
+    <section id="ayuda" class="card">
+      <h2>💞 Cómo puedes ayudar</h2>
+      <ul>
+        <li><strong>Adopta:</strong> brinda una segunda oportunidad a un animal rescatado.</li>
+        <li><strong>Apadrina:</strong> si no puedes adoptar, ayuda con alimento o atención médica.</li>
+        <li><strong>Voluntariado:</strong> colabora con refugios o transporta animales.</li>
+        <li><strong>Difunde:</strong> comparte casos en redes sociales.</li>
+        <li><strong>Denuncia:</strong> reporta el maltrato animal a las autoridades competentes.</li>
+      </ul>
     </section>
 
-    <section id="contactos">
-      <h2 class="section-title">Contactos en Torreón</h2>
-      <div class="contactos">
-        <div class="contacto-card"><strong>Atención Ciudadana</strong><br>Tel: 073</div>
-        <div class="contacto-card"><strong>Control Canino Municipal</strong><br>Tel / WhatsApp: 871 742 9902</div>
-        <div class="contacto-card"><strong>PROFEPA</strong><br>Tel: 800 776 3372</div>
-        <div class="contacto-card"><strong>Refugio Animal Local</strong><br>Tel: 871 123 4567</div>
-      </div>
+    <section id="educacion" class="card">
+      <h2>📚 Educación y concientización</h2>
+      <p>Educar es fundamental para prevenir el maltrato y el abandono. Enseñemos a los niños y jóvenes la importancia de respetar la vida animal.</p>
+      <ul>
+        <li>Organiza charlas escolares o ferias de adopción.</li>
+        <li>Promueve la esterilización responsable.</li>
+        <li>Evita el uso de animales para entretenimiento.</li>
+        <li>Apoya leyes y campañas contra el maltrato.</li>
+      </ul>
     </section>
 
-    <section id="denuncia">
-      <h2 class="section-title">Cómo Denunciar</h2>
-      <div class="card">
-        <p>Para realizar una denuncia efectiva, incluye:</p>
-        <ul>
-          <li>Dirección exacta o referencias.</li>
-          <li>Fecha y hora de los hechos.</li>
-          <li>Fotos o videos como evidencia.</li>
-          <li>Datos de testigos si es posible.</li>
-        </ul>
+    <section id="contactos" class="card">
+      <h2>📞 Contactos de ayuda animal en México</h2>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Estado</th><th>Organización</th><th>Teléfono</th><th>Tipo</th></tr></thead>
+          <tbody>
+            <tr><td>CDMX</td><td>Rescate Animal MX</td><td>55-1234-5678</td><td>Emergencia / Refugio</td></tr>
+            <tr><td>Jalisco</td><td>Huellitas GDL</td><td>33-5555-8888</td><td>Refugio / Adopción</td></tr>
+            <tr><td>Nuevo León</td><td>Amor Canino NL</td><td>81-4444-2222</td><td>Veterinaria / Rescate</td></tr>
+            <tr><td>Yucatán</td><td>Manos por Patas</td><td>99-6666-1111</td><td>Rescate / Esterilización</td></tr>
+          </tbody>
+        </table>
       </div>
+      <p>Si conoces refugios o veterinarias que deberían aparecer aquí, contáctanos para agregarlos.</p>
     </section>
 
-    <section id="datos-curiosos">
-      <h2 class="section-title">Datos Curiosos</h2>
-      <div class="card">
-        <ul>
-          <li>Los gatos tienen un promedio de 16 horas de sueño al día.</li>
-          <li>Los perros pueden detectar emociones humanas mediante el olfato.</li>
-          <li>El juego y la socialización son vitales para la salud emocional de los animales.</li>
-          <li>Adoptar salva vidas: cada adopción libera espacio en refugios para otro animal necesitado.</li>
-        </ul>
-      </div>
+    <section class="card">
+      <h2>🐾 Nuestra misión</h2>
+      <p>En <strong>Little Footprints</strong> creemos que cada animal merece amor, respeto y una vida digna. Promovemos la adopción responsable, la educación sobre el cuidado animal y la creación de redes de apoyo entre rescatistas, veterinarios y familias. Nuestro sueño es un país donde ningún animal sea abandonado ni maltratado.</p>
+      <h3>Objetivos:</h3>
+      <ul>
+        <li>Rescatar animales en situación de riesgo.</li>
+        <li>Fomentar la esterilización y vacunación masiva.</li>
+        <li>Proporcionar hogares temporales y definitivos.</li>
+        <li>Educar sobre la tenencia responsable.</li>
+      </ul>
     </section>
   </main>
 
   <footer>
-    <p>Creado con 💚 por <strong>Madai Yamile Corona Vargas</strong> — Proyecto “Una Huella a la Vez” | Listo para GitHub Pages</p>
+    <p>Little Footprints © 2025 — Creado con amor por defensores de los animales 🐶🐱</p>
+    <p>Inspirado por la esperanza de dejar huellitas positivas en el mundo 🌸</p>
   </footer>
 </body>
 </html>
