@@ -7,7 +7,16 @@
   <meta name="description" content="Little Footprints — iniciativa para ayudar a animales callejeros: adopción, rescate, atención médica, educación y redes de apoyo en México." />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#fff7f2;--card:#fffdfc;--accent:#ffd7cf;--accent2:#f7e2c8;--muted:#a1887f;--text:#463a36;--shadow:0 8px 24px rgba(69,58,55,0.08);--radius:18px}
+    :root{
+      --bg:#fff7f2;
+      --card:#fffdfc;
+      --accent:#ffd7cf;
+      --accent2:#f7e2c8;
+      --muted:#a1887f;
+      --text:#463a36;
+      --shadow:0 8px 24px rgba(69,58,55,0.08);
+      --radius:18px
+    }
     *{box-sizing:border-box}
     body{font-family:'Poppins',sans-serif;margin:0;background:var(--bg);color:var(--text)}
     .wrap{max-width:1200px;margin:26px auto;padding:18px}
@@ -18,7 +27,7 @@
 
     /* Slider container */
     .slider{position:relative;overflow:hidden;border-radius:18px;margin-top:18px;box-shadow:var(--shadow)}
-    .slides{display:flex;transition:transform .6s cubic-bezier(.22,.9,.29,1);width:400%}
+    .slides{display:flex;transition:transform .6s cubic-bezier(.22,.9,.29,1);width:500%}
     .pane{min-width:100%;padding:28px;background:linear-gradient(180deg,#fff,#fff7f4)}
 
     /* Nav for slider */
@@ -27,7 +36,8 @@
 
     .grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
     .pet-card{background:#fff;padding:12px;border-radius:12px}
-    img.responsive{width:100%;height:auto;border-radius:12px}
+    img.responsive{width:100%;height:auto;border-radius:12px;transition:transform 0.3s ease;box-shadow:0 6px 18px rgba(69,58,55,0.1)}
+    img.responsive:hover{transform:scale(1.05)}
 
     table{width:100%;border-collapse:collapse;margin-top:8px}
     th,td{padding:8px;border-bottom:1px solid #fbf0ec;text-align:left}
@@ -43,7 +53,14 @@
 <body>
   <div class="wrap">
     <header>
-      <div class="logo" aria-hidden="true"><svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="12" fill="#fff6f3"/><g transform="translate(9 8)" fill="#ffb6ab"><path d="M10 4c2 0 4 2 4 4s-2 4-4 4-4-2-4-4 2-4 4-4zM26 4c2 0 4 2 4 4s-2 4-4 4-4-2-4-4 2-4 4-4zM8 24c4 0 8 4 8 8s-4 8-8 8-8-4-8-8 4-8 8-8zM28 24c4 0 8 4 8 8s-4 8-8 8-8-4-8-8 4-8 8-8z"/></g></svg></div>
+      <div class="logo" aria-hidden="true">
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <rect width="64" height="64" rx="12" fill="#fff6f3"/>
+          <g transform="translate(9 8)" fill="#ffb6ab">
+            <path d="M10 4c2 0 4 2 4 4s-2 4-4 4-4-2-4-4 2-4 4-4zM26 4c2 0 4 2 4 4s-2 4-4 4-4-2-4-4 2-4 4-4zM8 24c4 0 8 4 8 8s-4 8-8 8-8-4-8-8 4-8 8-8zM28 24c4 0 8 4 8 8s-4 8-8 8-8-4-8-8 4-8 8-8z"/>
+          </g>
+        </svg>
+      </div>
       <div>
         <h1>Little Footprints 🐾</h1>
         <p class="lead">Red de rescate, adopción y apoyo para animales en México — enfocado en Torreón y Gómez Palacio.</p>
@@ -54,11 +71,23 @@
     <!-- Slider -->
     <div class="slider" aria-label="Contenido deslizante">
       <div class="slides" id="slides">
-        <!-- Pane 1: Inicio / info -->
+        <!-- Pane 1: Inicio decorado -->
         <section class="pane">
-          <h2>Inicio</h2>
-          <p>Bienvenido a Little Footprints. Usa las pestañas para navegar lateralmente entre secciones: Adopción, Cómo ayudar, Números de ayuda y Recursos. Las animaciones laterales facilitan explorar sin dejar la página.</p>
-          <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
+          <h2 style="text-align:center;color:#f06b62;">Bienvenido a Little Footprints 🐾</h2>
+          <p style="text-align:center;font-size:1.1em;color:#7a4f4b;max-width:600px;margin:12px auto;">
+            "Cada pata que ayudamos deja una huella de amor en el mundo."
+          </p>
+
+          <!-- Mosaico de imágenes decorativas -->
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-top:18px">
+            <img class="responsive" src="https://cdn.pixabay.com/photo/2016/02/19/11/53/dog-1209621_1280.jpg" alt="Perro callejero 1">
+            <img class="responsive" src="https://cdn.pixabay.com/photo/2017/05/31/15/48/cat-2363856_1280.jpg" alt="Gato callejero 1">
+            <img class="responsive" src="https://cdn.pixabay.com/photo/2016/02/19/10/00/dog-1209623_1280.jpg" alt="Perro callejero 2">
+            <img class="responsive" src="https://cdn.pixabay.com/photo/2015/03/27/13/16/animal-694730_1280.jpg" alt="Gato callejero 2">
+            <img class="responsive" src="https://cdn.pixabay.com/photo/2014/12/22/00/04/dog-579856_1280.jpg" alt="Perro callejero 3">
+          </div>
+
+          <div style="display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;justify-content:center">
             <button class="slide-btn" onclick="goTo(1)">Adopción</button>
             <button class="slide-btn" onclick="goTo(2)">Cómo ayudar</button>
             <button class="slide-btn" onclick="goTo(3)">Números de ayuda</button>
@@ -105,67 +134,19 @@
           <h3>Torreón (Coahuila)</h3>
           <ul>
             <li><strong>Centro de Control Animal Torreón</strong> — Tel: <a href="tel:+528717429902">+52 871 742 9902</a>.</li>
-            <li><strong>Atención Ciudadana (Torreón)</strong> — Línea 073 para reportes municipales (usada localmente para denuncias).</li>
-            <li><strong>Defensoría Animalista Laguna (grupo de rescate)</strong> — contact via Facebook / redes locales.</li>
+            <li><strong>Atención Ciudadana (Torreón)</strong> — Línea 073 para reportes municipales.</li>
+            <li><strong>Defensoría Animalista Laguna</strong> — contacto vía Facebook / redes locales.</li>
           </ul>
-
           <h3>Gómez Palacio (Durango)</h3>
           <ul>
-            <li><strong>Delegación Fiscalía Gómez Palacio</strong> — Tel: <a href="tel:+528711751000">+52 871 175 1000 ext. 306</a> (línea reportada en notas locales para denuncias).</li>
-            <li><strong>Ananda A.C. (asociación local)</strong> — contacto en redes sociales y teléfono local.</li>
-            <li><strong>Centro de Atención Animal Durango (estado)</strong> — Programa de esterilización y atención, Tel: <a href="tel:+526181378698">+52 618 137 8698</a>.</li>
+            <li><strong>Delegación Fiscalía Gómez Palacio</strong> — Tel: <a href="tel:+528711751000">+52 871 175 1000 ext. 306</a>.</li>
+            <li><strong>Ananda A.C.</strong> — contacto en redes sociales y teléfono local.</li>
+            <li><strong>Centro de Atención Animal Durango</strong> — Tel: <a href="tel:+526181378698">+52 618 137 8698</a>.</li>
           </ul>
-
           <h3>Contacto federal</h3>
           <ul>
-            <li><strong>PROFEPA (denuncias ambientales y maltrato)</strong> — Línea: 800 PROFEPA (7763372) y correo de denuncias (según PROFEPA).</li>
+            <li><strong>PROFEPA</strong> — Línea: 800 PROFEPA (7763372) y correo de denuncias.</li>
           </ul>
-
-          <h3>Contacto rápido por estado (plantilla)</h3>
-          <p>A continuación aparece una tabla con los 32 estados. He llenado las filas prioritarias; el resto están en plantilla para completar tras verificación.</p>
-          <div style="overflow:auto">
-            <table>
-              <thead><tr><th>Estado</th><th>Organización / Unidad</th><th>Teléfono / WhatsApp</th><th>Tipo</th></tr></thead>
-              <tbody>
-                <tr><td>Coahuila (Torreón)</td><td>Centro de Control Animal Torreón</td><td><a href="tel:+528717429902">+52 871 742 9902</a></td><td>Control animal / Rescate</td></tr>
-                <tr><td>Durango (Gómez Palacio)</td><td>Delegación Fiscalía Gómez Palacio</td><td><a href="tel:+528711751000">+52 871 175 1000 ext.306</a></td><td>Denuncias / Fiscalía</td></tr>
-                <tr><td>Durango (estado)</td><td>Centro de Atención Animal Durango</td><td><a href="tel:+526181378698">+52 618 137 8698</a></td><td>Esterilización / Clínica</td></tr>
-                <!-- Placeholder rows for other states -->
-                <tr><td>Aguascalientes</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Baja California</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Baja California Sur</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Campeche</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Chiapas</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Chihuahua</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Ciudad de México</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Colima</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Guanajuato</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Guerrero</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Hidalgo</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Jalisco</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>México (Estado)</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Michoacán</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Morelos</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Nayarit</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Nuevo León</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Oaxaca</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Puebla</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Querétaro</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Quintana Roo</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>San Luis Potosí</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Sinaloa</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Sonora</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Tabasco</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Tamaulipas</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Tlaxcala</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Veracruz</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Yucatán</td><td>—</td><td>—</td><td>—</td></tr>
-                <tr><td>Zacatecas</td><td>—</td><td>—</td><td>—</td></tr>
-              </tbody>
-            </table>
-          </div>
-
-          <p style="margin-top:12px;color:var(--muted)">Puedo completar y verificar cada fila para los 32 estados: dime si quieres que yo busque cada contacto y los añada (te daré las fuentes para confirmar).</p>
         </section>
 
         <!-- Pane 5: Recursos -->
@@ -190,17 +171,22 @@
     </div>
 
     <footer style="margin-top:18px;color:var(--muted)">
-      <p>Little Footprints © 2025 — Prototipo. Contactos locales para Torreón y Gómez Palacio verificados en fuentes locales (pruebas abajo).</p>
+      <p>Little Footprints © 2025 — Prototipo. Contactos locales para Torreón y Gómez Palacio verificados en fuentes locales.</p>
     </footer>
   </div>
 
   <script>
-    // Slider logic: goTo(index) where 0..4
+    // Slider logic
     const slides = document.getElementById('slides');
     function goTo(i){ slides.style.transform = 'translateX(' + (-i*100) + '%)'; window.location.hash = ''; }
 
-    // Preload images (optional)
-    ['https://cdn.pixabay.com/photo/2016/02/19/11/53/dog-1209621_1280.jpg','https://cdn.pixabay.com/photo/2017/05/31/15/48/cat-2363856_1280.jpg','https://cdn.pixabay.com/photo/2016/02/19/10/00/dog-1209623_1280.jpg'].forEach(src=>{const i=new Image();i.src=src});
+    // Preload imágenes
+    ['https://cdn.pixabay.com/photo/2016/02/19/11/53/dog-1209621_1280.jpg',
+     'https://cdn.pixabay.com/photo/2017/05/31/15/48/cat-2363856_1280.jpg',
+     'https://cdn.pixabay.com/photo/2016/02/19/10/00/dog-1209623_1280.jpg',
+     'https://cdn.pixabay.com/photo/2015/03/27/13/16/animal-694730_1280.jpg',
+     'https://cdn.pixabay.com/photo/2014/12/22/00/04/dog-579856_1280.jpg'].forEach(src=>{const i=new Image();i.src=src});
   </script>
 </body>
 </html>
+
