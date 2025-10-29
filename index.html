@@ -6,80 +6,77 @@
 <title>Little Footprints — Ayuda y Amor Animal</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#fff7f2;
-    --card:#fffdfc;
-    --accent:#ffd7cf;
-    --accent2:#f7e2c8;
-    --muted:#a1887f;
-    --text:#463a36;
-    --shadow:0 8px 24px rgba(69,58,55,0.08);
-    --radius:18px
-  }
+:root{
+  --bg:#fff7f2;
+  --card:#fffdfc;
+  --accent:#ffd7cf;
+  --accent2:#f7e2c8;
+  --muted:#a1887f;
+  --text:#463a36;
+  --title:#f06b62;
+  --shadow:0 8px 24px rgba(69,58,55,0.08);
+  --radius:18px
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
+.wrap{max-width:1200px;margin:0 auto;padding:20px;position:relative;}
 
-  *{box-sizing:border-box;}
-  body{margin:0;font-family:'Poppins',sans-serif;background:var(--bg);color:var(--text);overflow-x:hidden;}
-  .wrap{max-width:1200px;margin:20px auto;padding:20px;position:relative;}
+header{position:relative;z-index:2;margin-bottom:20px;}
+nav{display:flex;gap:10px;justify-content:center;margin-bottom:20px;flex-wrap:wrap;}
+nav button{padding:10px 16px;border-radius:999px;border:none;background:var(--accent);cursor:pointer;font-weight:500;transition:0.3s;}
+nav button:hover{background:var(--accent2);}
 
-  header{display:flex;gap:16px;align-items:center;position:relative;z-index:2;}
-  .logo{width:96px;height:96px;border-radius:16px;background:linear-gradient(180deg,#fff,#fff6f2);display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow);}
-  h1{margin:0;color:#f06b62;font-size:2rem;}
-  p.lead{margin:4px 0;color:var(--muted);font-size:1rem;}
-  .badge{display:inline-block;padding:6px 10px;border-radius:999px;background:linear-gradient(180deg,#fff2ee,#ffe7df);border:1px solid #ffd9d0;font-weight:700;color:#7a4f4b;}
+h1{font-size:3rem;color:var(--title);text-align:center;margin-bottom:10px;}
+h2{font-size:2rem;color:var(--title);margin-bottom:10px;}
+h3{font-size:1.2rem;color:var(--title);margin-top:12px;}
+p.lead{margin:4px 0;color:var(--muted);font-size:1rem;font-style:italic;text-align:center;}
 
-  /* Slider */
-  .slider{position:relative;overflow:hidden;border-radius:18px;margin-top:18px;box-shadow:var(--shadow);}
-  .slides{display:flex;transition:transform .6s cubic-bezier(.22,.9,.29,1);width:500%;}
-  .pane{min-width:100%;padding:28px;background:linear-gradient(180deg,#fff,#fff7f4);border-radius:18px;position:relative;}
+.slider{position:relative;overflow:hidden;border-radius:18px;box-shadow:var(--shadow);}
+.slides{display:flex;transition:transform .6s cubic-bezier(.22,.9,.29,1);width:500%;}
+.pane{min-width:100%;padding:28px;background:linear-gradient(180deg,#fff,#fff7f4);border-radius:18px;position:relative;}
 
-  /* Navigation buttons */
-  .slide-nav{display:flex;gap:8px;justify-content:center;margin-top:12px;position:relative;z-index:2;}
-  .slide-btn{padding:8px 14px;border-radius:999px;border:none;background:#fff5f2;cursor:pointer;font-weight:500;}
+.grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:12px;}
+.pet-card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);}
 
-  /* Cards */
-  .grid-3{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;margin-top:12px;}
-  .pet-card{background:var(--card);padding:14px;border-radius:12px;box-shadow:var(--shadow);}
-  
-  table{width:100%;border-collapse:collapse;margin-top:12px;}
-  th,td{padding:8px;border-bottom:1px solid #fbf0ec;text-align:left;}
-  th{background:var(--accent2);color:#a67a6c;font-weight:600;}
+table{width:100%;border-collapse:collapse;margin-top:12px;}
+th,td{padding:8px;border-bottom:1px solid #fbf0ec;text-align:left;}
+th{background:var(--accent2);color:#a67a6c;font-weight:600;}
 
-  /* Huellas flotantes */
-  .paw{position:absolute;font-size:24px;color:var(--accent);opacity:0.15;animation:float 10s infinite ease-in-out;pointer-events:none;}
-  @keyframes float{
-    0%{transform:translateY(0) rotate(0deg);}
-    50%{transform:translateY(-25px) rotate(15deg);}
-    100%{transform:translateY(0) rotate(0deg);}
-  }
+/* Huellas flotantes */
+.paw{position:absolute;font-size:28px;color:var(--accent);opacity:0.15;animation:float 10s infinite ease-in-out;pointer-events:none;}
+@keyframes float{
+  0%{transform:translateY(0) rotate(0deg);}
+  50%{transform:translateY(-25px) rotate(15deg);}
+  100%{transform:translateY(0) rotate(0deg);}
+}
 
-  /* Palabras animadas */
-  .sound-word{position:absolute;font-weight:700;font-size:1.2em;color:#f06b62;opacity:0;pointer-events:none;animation:appear 2s forwards;z-index:3;}
-  @keyframes appear{
-    0%{opacity:0;transform:translateY(10px);}
-    50%{opacity:1;}
-    100%{opacity:0;transform:translateY(-20px);}
-  }
+/* Palabras animadas */
+.sound-word{position:absolute;font-weight:700;font-size:1.3em;color:#f06b62;opacity:0;pointer-events:none;animation:appear 2s forwards;z-index:3;}
+@keyframes appear{
+  0%{opacity:0;transform:translateY(10px);}
+  50%{opacity:1;}
+  100%{opacity:0;transform:translateY(-20px);}
+}
 
-  @media(max-width:900px){.slides{width:100%}.pane{padding:18px}}
+@media(max-width:900px){.slides{width:100%}.pane{padding:18px}}
 </style>
 </head>
 <body>
 <div class="wrap">
+
   <header>
-    <div class="logo" aria-hidden="true">
-      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-        <rect width="64" height="64" rx="12" fill="#fff6f3"/>
-        <g transform="translate(9 8)" fill="#ffb6ab">
-          <path d="M10 4c2 0 4 2 4 4s-2 4-4 4-4-2-4-4 2-4 4-4zM26 4c2 0 4 2 4 4s-2 4-4 4-4-2-4-4 2-4 4-4zM8 24c4 0 8 4 8 8s-4 8-8 8-8-4-8-8 4-8 8-8zM28 24c4 0 8 4 8 8s-4 8-8 8-8-4-8-8 4-8 8-8z"/>
-        </g>
-      </svg>
-    </div>
-    <div>
-      <h1>Little Footprints 🐾</h1>
-      <p class="lead">Red de rescate, adopción y apoyo para animales en México — enfocado en Torreón y Gómez Palacio.</p>
-      <div style="margin-top:8px"><span class="badge">Prototipo</span></div>
-    </div>
+    <h1>Little Footprints 🐾</h1>
+    <p class="lead">“Cada huella cuenta: juntos podemos darles una vida mejor a los animales callejeros.”</p>
   </header>
+
+  <!-- Navegación arriba -->
+  <nav>
+    <button onclick="goTo(0)">Inicio</button>
+    <button onclick="goTo(1)">Adopción</button>
+    <button onclick="goTo(2)">Cómo ayudar</button>
+    <button onclick="goTo(3)">Números de ayuda</button>
+    <button onclick="goTo(4)">Recursos</button>
+  </nav>
 
   <!-- Slider -->
   <div class="slider" aria-label="Contenido deslizante">
@@ -88,73 +85,88 @@
       <!-- Inicio -->
       <section class="pane">
         <h2>Bienvenido a Little Footprints</h2>
-        <p>“Cada huella cuenta: juntos podemos darles una vida mejor a los animales callejeros.”</p>
-        <p>Usa las pestañas para navegar entre secciones: Adopción, Cómo ayudar, Números de ayuda y Recursos.</p>
-        <div style="display:flex;gap:10px;margin-top:12px;flex-wrap:wrap">
-          <button class="slide-btn" onclick="goTo(1)">Adopción</button>
-          <button class="slide-btn" onclick="goTo(2)">Cómo ayudar</button>
-          <button class="slide-btn" onclick="goTo(3)">Números de ayuda</button>
-          <button class="slide-btn" onclick="goTo(4)">Recursos</button>
-        </div>
+        <p>Usa las pestañas arriba para explorar todas las secciones. Little Footprints es una red dedicada a proteger, rescatar y educar sobre los animales callejeros. Aquí encontrarás información completa y consejos para la adopción, cuidado, voluntariado y contacto con autoridades.</p>
+        <h3>Misión</h3>
+        <p>Nuestra misión es rescatar animales en situación de calle, promover adopciones responsables y brindar educación comunitaria sobre bienestar animal.</p>
+        <h3>Visión</h3>
+        <p>Ser una red confiable de ayuda animal en México, especialmente en Torreón y Gómez Palacio, inspirando a la sociedad a cuidar de cada vida.</p>
+        <h3>Valores</h3>
+        <ul>
+          <li>Respeto por la vida animal.</li>
+          <li>Transparencia en nuestras acciones.</li>
+          <li>Responsabilidad y compromiso con cada adopción.</li>
+          <li>Educación y concienciación en la comunidad.</li>
+          <li>Colaboración con refugios, voluntarios y autoridades locales.</li>
+        </ul>
       </section>
 
       <!-- Adopción -->
       <section class="pane">
         <h2>Adopción responsable</h2>
-        <p>Guía completa de adopción: pasos, requisitos, cuidados iniciales y seguimiento post-adopción.</p>
-        <h3>Requisitos</h3>
-        <ul>
-          <li>Formulario y entrevista.</li>
-          <li>Compromiso de atención veterinaria.</li>
-          <li>Espacio adecuado y tiempo para socializar.</li>
-        </ul>
+        <p>Adoptar no es solo dar un hogar, sino comprometerse con la vida y bienestar del animal. Aquí está todo lo que necesitas saber:</p>
+        <h3>Pasos de adopción</h3>
+        <ol>
+          <li>Completar el formulario de adopción con datos reales y honestos.</li>
+          <li>Entrevista para conocer estilo de vida, espacio y tiempo disponible.</li>
+          <li>Visita inicial al animal para conocerlo y evaluar compatibilidad.</li>
+          <li>Verificación del hogar: seguridad, espacio y ambiente adecuado.</li>
+          <li>Compromiso de atención veterinaria y seguimiento post-adopción.</li>
+          <li>Entrega formal y orientación de cuidados.</li>
+        </ol>
         <h3>Checklist para el hogar</h3>
         <ul>
-          <li>Comida, cama, platos, collar y placa identificativa.</li>
-          <li>Visita al veterinario en los primeros 7 días.</li>
-          <li>Adaptación gradual y refuerzo positivo.</li>
+          <li>Alimento balanceado y agua limpia.</li>
+          <li>Cama, juguetes y espacio cómodo y seguro.</li>
+          <li>Collar con placa identificativa y microchip si es posible.</li>
+          <li>Visita a veterinario en los primeros 7 días para revisión general.</li>
+          <li>Adaptación gradual con refuerzos positivos y supervisión constante.</li>
+          <li>Educación básica sobre conducta y socialización.</li>
+        </ul>
+        <h3>Consejos de salud y seguridad</h3>
+        <ul>
+          <li>Mantener vacunación y desparasitación al día.</li>
+          <li>Evitar estrés mediante cambios graduales en el entorno.</li>
+          <li>Supervisión con niños, otros animales y visitas externas.</li>
+          <li>Evitar exposición a peligros como calles transitadas o químicos.</li>
         </ul>
       </section>
 
       <!-- Cómo ayudar -->
       <section class="pane">
         <h2>Cómo ayudar</h2>
-        <p>Acciones concretas: adoptar, apadrinar, voluntariado, donar y reportar maltrato.</p>
+        <p>Existen muchas formas de marcar la diferencia:</p>
         <div class="grid-3">
-          <div class="pet-card"><h4>Adopta</h4><p>Lleva a casa a un nuevo miembro y ahorra una vida.</p></div>
-          <div class="pet-card"><h4>Apadrina</h4><p>Aporta mensualidades para alimento o tratamiento.</p></div>
-          <div class="pet-card"><h4>Voluntariado</h4><p>Ayuda en refugios, transporte y eventos.</p></div>
-          <div class="pet-card"><h4>Denuncia</h4><p>Documenta y reporta maltrato a autoridades.</p></div>
-          <div class="pet-card"><h4>Comparte</h4><p>Difunde perfiles de adopción en redes sociales.</p></div>
+          <div class="pet-card"><h4>Adopta</h4><p>Lleva a casa un animal rescatado y ofrece una vida segura y llena de amor.</p></div>
+          <div class="pet-card"><h4>Apadrina</h4><p>Contribuye mensualmente con alimentos, medicinas o atención veterinaria para un animal en refugio.</p></div>
+          <div class="pet-card"><h4>Voluntariado</h4><p>Participa en jornadas de rescate, transporte de animales, eventos educativos y campañas de concienciación.</p></div>
+          <div class="pet-card"><h4>Rescate temporal</h4><p>Ofrece un hogar temporal hasta que el animal encuentre adopción definitiva.</p></div>
+          <div class="pet-card"><h4>Donación</h4><p>Apoya económicamente o con insumos como comida, medicamentos, collares, ropa de invierno y cobijas.</p></div>
+          <div class="pet-card"><h4>Difusión</h4><p>Comparte publicaciones de adopción, eventos y educación en redes sociales para aumentar el alcance.</p></div>
+          <div class="pet-card"><h4>Educación</h4><p>Participa en talleres o charlas sobre tenencia responsable, esterilización y prevención de maltrato animal.</p></div>
         </div>
       </section>
 
       <!-- Números de ayuda -->
       <section class="pane">
-        <h2>Números de ayuda — Torreón y Gómez Palacio</h2>
-        <h3>Torreón (Coahuila)</h3>
-        <ul>
-          <li><strong>Centro de Control Animal Torreón</strong> — Tel: <a href="tel:+528717429902">+52 871 742 9902</a></li>
-          <li><strong>Atención Ciudadana</strong> — Línea 073 para reportes municipales</li>
-          <li><strong>Defensoría Animalista Laguna</strong> — contacto via redes locales</li>
-        </ul>
-        <h3>Gómez Palacio (Durango)</h3>
-        <ul>
-          <li><strong>Delegación Fiscalía Gómez Palacio</strong> — Tel: <a href="tel:+528711751000">+52 871 175 1000 ext. 306</a></li>
-          <li><strong>Ananda A.C.</strong> — contacto redes sociales</li>
-          <li><strong>Centro de Atención Animal Durango</strong> — Tel: <a href="tel:+526181378698">+52 618 137 8698</a></li>
-        </ul>
+        <h2>Números de ayuda y contactos</h2>
+        <p>Listado de contactos confiables en Torreón, Gómez Palacio y México.</p>
         <h3>Contacto federal</h3>
         <ul>
-          <li><strong>PROFEPA</strong> — Línea: 800 PROFEPA (7763372)</li>
+          <li>PROFEPA — Línea: 800 PROFEPA (7763372) — Denuncias ambientales y maltrato animal.</li>
         </ul>
-        <h3>Contacto rápido por estado</h3>
+        <h3>Tabla rápida por estado</h3>
         <div style="overflow:auto">
           <table>
             <thead><tr><th>Estado</th><th>Organización</th><th>Teléfono</th><th>Tipo</th></tr></thead>
             <tbody>
-              <tr><td>Coahuila</td><td>Centro de Control Animal Torreón</td><td>+52 871 742 9902</td><td>Control animal</td></tr>
-              <tr><td>Durango</td><td>Centro de Atención Animal Durango</td><td>+52 618 137 8698</td><td>Clínica</td></tr>
+              <tr><td>Coahuila (Torreón)</td><td>Centro de Control Animal Torreón</td><td>+52 871 742 9902</td><td>Control animal / Rescate</td></tr>
+              <tr><td>Durango (Gómez Palacio)</td><td>Delegación Fiscalía Gómez Palacio</td><td>+52 871 175 1000 ext.306</td><td>Denuncias / Fiscalía</td></tr>
+              <tr><td>Durango (estado)</td><td>Centro de Atención Animal Durango</td><td>+52 618 137 8698</td><td>Esterilización / Clínica</td></tr>
+              <!-- Resto de estados plantilla -->
+              <tr><td>Aguascalientes</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>Baja California</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>Baja California Sur</td><td>—</td><td>—</td><td>—</td></tr>
+              <tr><td>Campeche</td><td>—</td><td>—</td><td>—</td></tr>
             </tbody>
           </table>
         </div>
@@ -162,59 +174,67 @@
 
       <!-- Recursos -->
       <section class="pane">
-        <h2>Recursos</h2>
-        <ul>
-          <li><a href="#" onclick="alert('Descarga simulada: protocolo_rescate.pdf')">Protocolo de rescate (PDF)</a></li>
-          <li><a href="#" onclick="alert('Descarga simulada: checklist_adopcion.pdf')">Checklist de adopción (PDF)</a></li>
-        </ul>
+        <h2>Recursos y guías completas</h2>
+        <h3>Protocolo de rescate</h3>
+        <p>1. Detectar animal en riesgo.<br>
+        2. Evaluar seguridad del rescate.<br>
+        3. Transportar con cuidado.<br>
+        4. Evaluación veterinaria inmediata.<br>
+        5. Registro en refugio y seguimiento de salud.<br>
+        6. Aplicar tratamientos y vacunas necesarios.<br>
+        7. Preparar para adopción con socialización y entrenamiento.</p>
+
+        <h3>Checklist de adopción</h3>
+        <p>1. Confirmar datos del adoptante y hogar.<br>
+        2. Preparar espacio seguro y cómodo.<br>
+        3. Entregar guía de cuidado inicial.<br>
+        4. Revisión y seguimiento a los 7, 14 y 30 días.<br>
+        5. Educación sobre alimentación, higiene y socialización.<br>
+        6. Consejos sobre salud preventiva y vacunación.</p>
+
+        <h3>Manual de voluntariado</h3>
+        <p>1. Apoyo en refugio, transporte y rescate.<br>
+        2. Participación en eventos y campañas de concienciación.<br>
+        3. Capacitación en manejo de animales y primeros auxilios.<br>
+        4. Comunicación con adoptantes y seguimiento de animales.<br>
+        5. Promoción de adopciones y apadrinamientos.</p>
+
+        <h3>Guía de cuidados iniciales</h3>
+        <p>1. Alimentación equilibrada y adecuada por edad y peso.<br>
+        2. Higiene del espacio y juguetes.<br>
+        3. Socialización con personas y otros animales.<br>
+        4. Prevención de accidentes y cuidado en exterior.<br>
+        5. Visitas veterinarias periódicas.<br>
+        6. Educación básica sobre comportamiento animal y refuerzo positivo.</p>
       </section>
 
     </div>
   </div>
 
-  <div class="slide-nav">
-    <button class="slide-btn" onclick="goTo(0)">Inicio</button>
-    <button class="slide-btn" onclick="goTo(1)">Adopción</button>
-    <button class="slide-btn" onclick="goTo(2)">Cómo ayudar</button>
-    <button class="slide-btn" onclick="goTo(3)">Números</button>
-    <button class="slide-btn" onclick="goTo(4)">Recursos</button>
-  </div>
-
-  <footer style="margin-top:18px;color:var(--muted);position:relative;z-index:2;">
-    <p>Little Footprints © 2025 — Prototipo</p>
+  <footer style="margin-top:18px;color:var(--muted);text-align:center;position:relative;z-index:2;">
+    <p>Little Footprints © 2025 — Prototipo. Información verificada para Torreón y Gómez Palacio.</p>
   </footer>
 </div>
 
 <!-- Huellas flotantes -->
 <div class="paw" style="top:10%;left:5%;">🐾</div>
-<div class="paw" style="top:30%;right:10%;">🐾</div>
-<div class="paw" style="bottom:15%;left:20%;">🐾</div>
-<div class="paw" style="bottom:25%;right:15%;">🐾</div>
-<div class="paw" style="top:50%;left:40%;">🐾</div>
-<div class="paw" style="top:70%;right:30%;">🐾</div>
+<div class="paw" style="top:20%;left:80%;">🐾</div>
+<div class="paw" style="top:60%;left:30%;">🐾</div>
+<div class="paw" style="top:75%;left:60%;">🐾</div>
 
-<!-- Sonidos animados -->
-<div id="sounds-container"></div>
+<!-- Palabras animadas -->
+<div class="sound-word" style="top:30%;left:20%;animation-delay:0s;">¡Guau!</div>
+<div class="sound-word" style="top:50%;left:50%;animation-delay:1s;">¡Miau!</div>
+<div class="sound-word" style="top:40%;left:70%;animation-delay:2s;">¡Guau!</div>
 
 <script>
-  const slides = document.getElementById('slides');
-  function goTo(i){ slides.style.transform = 'translateX(' + (-i*100) + '%)'; }
+// Slider logic
+const slides=document.getElementById('slides');
+function goTo(i){slides.style.transform='translateX(' + (-i*100) + '%)';window.location.hash='';}
 
-  const sounds = ["Guau!", "Miau!", "Woof!", "Meow!", "Arf!", "Prrr!"];
-  const container = document.getElementById('sounds-container');
-
-  function spawnSound(){
-    const word = document.createElement('div');
-    word.className = 'sound-word';
-    word.innerText = sounds[Math.floor(Math.random()*sounds.length)];
-    word.style.top = (Math.random()*60 + 20) + '%';
-    word.style.left = (Math.random()*70 + 10) + '%';
-    word.style.animationDuration = (1.5 + Math.random()*1.5)+'s';
-    container.appendChild(word);
-    setTimeout(()=>{word.remove()},2000);
-  }
-
-  setInterval(spawnSound,800);
+// Animación repetitiva de palabras
+const words=document.querySelectorAll('.sound-word');
+setInterval(()=>{words.forEach(w=>{w.style.animation='appear 2s forwards'});},3000);
 </script>
 </body>
 </html>
